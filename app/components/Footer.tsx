@@ -39,10 +39,10 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-text-primary/70">
         {/* Left: Copyright */}
         <div className="text-center md:text-left">
-          © {year} Tachyon. Alla rättigheter förbehållna.
+          © {year} Dataflow Solutions. Alla rättigheter förbehållna.
         </div>
         <div className="text-center md:text-left text-xs text-text-primary/50">
-        Enskild firma – org.nr: 060604-3115 (Albin Hasanaj)
+          Enskild firma – org.nr: 060604-3115 (Albin Hasanaj)
         </div>
 
         {/* Right: Links */}

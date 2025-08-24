@@ -19,7 +19,8 @@ export default function Home() {
             Sidan du befinner dig på får dessa resultat
           </h2>
           <p className="text-text-primary/60 text-base md:text-lg max-w-xl mt-2">
-            100 poäng i alla kategorier – hastighet, tillgänglighet, bästa praxis och SEO.
+            100 poäng i alla kategorier – hastighet, tillgänglighet, bästa
+            praxis och SEO.
           </p>
 
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-white/80 text-sm">
@@ -29,7 +30,10 @@ export default function Home() {
               { label: "Best Practices", value: 100 },
               { label: "SEO", value: 100 },
             ].map((score) => (
-              <div key={score.label} className="flex flex-col items-center gap-2">
+              <div
+                key={score.label}
+                className="flex flex-col items-center gap-2"
+              >
                 <div className="w-16 h-16 flex items-center justify-center rounded-full border-2 border-green-500 text-green-400 font-bold text-lg shadow-[0_0_10px_1px_rgba(34,197,94,0.2)]">
                   {score.value}
                 </div>
@@ -122,13 +126,13 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center text-center gap-2">
             <Badge text="Om Oss" />
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Möt visionen bakom Tachyon
+              Möt visionen bakom Dataflow Solutions
             </h2>
             <p className="text-center max-w-[700px] text-text-primary/50 md:text-xl/relaxed">
-              Tachyon föddes ur viljan att bygga något snabbare, skarpare och
-              mer tekniskt avancerat än traditionella byråer. Vi kombinerar
-              modern webbutveckling med AI, SaaS och hög prestanda – alltid med
-              precision, integritet och respekt för de vi bygger för.
+              Dataflow Solutions föddes ur viljan att bygga något snabbare,
+              skarpare och mer tekniskt avancerat än traditionella byråer. Vi
+              kombinerar modern webbutveckling med AI, SaaS och hög prestanda –
+              alltid med precision, integritet och respekt för de vi bygger för.
             </p>
           </div>
         </div>

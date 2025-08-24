@@ -43,7 +43,7 @@ export default function Navbar() {
           >
             <Image
               src="/logo/tachyon-logo.svg"
-              alt="Tachyon-Icon"
+              alt="Dataflow-Icon"
               width={136}
               height={136}
             />
