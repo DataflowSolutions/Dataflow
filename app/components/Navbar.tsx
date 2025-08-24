@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import HamburgerMenu from "./HamburgerMenu";
@@ -41,12 +40,13 @@ export default function Navbar() {
             href="/"
             className="flex items-center hover:opacity-75 transition-opacity"
           >
-            <Image
+            {/* <Image
               src="/logo/tachyon-logo.svg"
               alt="Dataflow-Icon"
               width={136}
               height={136}
-            />
+            /> */}
+            <span className="font-black text-2xl">Dataflow Solutions</span>
           </Link>
         </div>
 

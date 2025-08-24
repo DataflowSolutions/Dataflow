@@ -1,21 +1,42 @@
 {
   "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-5601f1e90da4c867.js",
+      "static/chunks/4bd1b696-e8f934facbeb9ff8.js",
+      "static/chunks/684-e7b8614ba2158e03.js",
+      "static/chunks/main-app-b8621d3d087a8ad5.js",
+      "static/chunks/app/_not-found/page-7a0c975f3be97bfa.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-5601f1e90da4c867.js",
+      "static/chunks/4bd1b696-e8f934facbeb9ff8.js",
+      "static/chunks/684-e7b8614ba2158e03.js",
+      "static/chunks/main-app-b8621d3d087a8ad5.js",
+      "static/css/50e7a0615f694fcf.css",
+      "static/chunks/395-c231c0a29aa10346.js",
+      "static/chunks/app/layout-79508ddbcbe7d850.js"
+    ],
     "/page": [
-      "static/chunks/node_modules_next_dist_1a6ee436._.js",
-      "static/chunks/app_favicon_ico_mjs_659ce808._.js",
-      "static/chunks/app_globals_73c37791.css",
-      "static/chunks/node_modules_3748a8f9._.js",
-      "static/chunks/app_components_6e940441._.js",
-      "static/chunks/app_layout_tsx_c0237562._.js",
-      "static/chunks/_05a1e0f0._.js",
-      "static/chunks/app_page_tsx_00d5eee5._.js",
-      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
-      "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
-      "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",
-      "static/chunks/node_modules_next_dist_2ecbf5fa._.js",
-      "static/chunks/node_modules_@swc_helpers_cjs_00636ac3._.js",
-      "static/chunks/_e69f0d32._.js",
-      "static/chunks/_93808211._.js"
+      "static/chunks/webpack-5601f1e90da4c867.js",
+      "static/chunks/4bd1b696-e8f934facbeb9ff8.js",
+      "static/chunks/684-e7b8614ba2158e03.js",
+      "static/chunks/main-app-b8621d3d087a8ad5.js",
+      "static/chunks/395-c231c0a29aa10346.js",
+      "static/chunks/app/page-82dbe1b59cf5790b.js"
+    ],
+    "/hirena/layout": [
+      "static/chunks/webpack-5601f1e90da4c867.js",
+      "static/chunks/4bd1b696-e8f934facbeb9ff8.js",
+      "static/chunks/684-e7b8614ba2158e03.js",
+      "static/chunks/main-app-b8621d3d087a8ad5.js",
+      "static/chunks/app/hirena/layout-f6bef10b78450f52.js"
+    ],
+    "/hirena/page": [
+      "static/chunks/webpack-5601f1e90da4c867.js",
+      "static/chunks/4bd1b696-e8f934facbeb9ff8.js",
+      "static/chunks/684-e7b8614ba2158e03.js",
+      "static/chunks/main-app-b8621d3d087a8ad5.js",
+      "static/chunks/app/hirena/page-555c91530ad95c03.js"
     ]
   }
 }
