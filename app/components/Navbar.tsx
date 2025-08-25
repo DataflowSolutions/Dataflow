@@ -40,12 +40,6 @@ export default function Navbar() {
             href="/"
             className="flex items-center hover:opacity-75 transition-opacity"
           >
-            {/* <Image
-              src="/logo/tachyon-logo.svg"
-              alt="Dataflow-Icon"
-              width={136}
-              height={136}
-            /> */}
             <span className="font-black text-2xl">Dataflow Solutions</span>
           </Link>
         </div>
