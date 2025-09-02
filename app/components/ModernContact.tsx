@@ -32,7 +32,6 @@ const contactInfo = [
     title: "Telefon",
     content: "+46 70 042 73 62",
     description: "Ring oss alla dagar i veckan under bestämda tider.",
-    action: () => window.open("tel:+46700427362"),
   },
   //   {
   //     icon: MapPin,

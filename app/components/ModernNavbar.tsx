@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Moon, Sun, Menu, X, ChevronDown } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "@/app/providers/ThemeProvider";
 import { useRouter, usePathname } from "next/navigation";
 import Button from "./ui/Button";
@@ -10,16 +10,7 @@ import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "Hem", href: "#home" },
-  {
-    name: "Tjänster",
-    href: "#services",
-    submenu: [
-      { name: "Webbutveckling", href: "#webdev" },
-      { name: "SaaS-utveckling", href: "#saas" },
-      { name: "Hosting & Underhåll", href: "#hosting" },
-      { name: "Konsultation", href: "#consulting" },
-    ],
-  },
+  { name: "Tjänster", href: "#services" },
   { name: "Portfolio", href: "#portfolio" },
   { name: "Om oss", href: "#about" },
   { name: "Blogg", href: "/blog" },
@@ -29,7 +20,6 @@ const navigation = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const { theme, toggleTheme } = useTheme();
   const router = useRouter();
   const pathname = usePathname();
@@ -133,53 +123,18 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex lg:items-center lg:space-x-8">
               {navigation.map((item) => (
-                <div
+                <a
                   key={item.name}
-                  className="relative"
-                  onMouseEnter={() =>
-                    item.submenu && setActiveDropdown(item.name)
-                  }
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavigation(item.href, e)}
-                    className={cn(
-                      "flex items-center px-3 py-2 text-sm font-medium rounded-lg",
-                      "text-text-primary hover:text-primary transition-colors duration-200",
-                      "hover:bg-accent/50"
-                    )}
-                  >
-                    {item.name}
-                    {item.submenu && <ChevronDown className="ml-1 h-4 w-4" />}
-                  </a>
-
-                  {/* Dropdown Menu */}
-                  {item.submenu && (
-                    <AnimatePresence>
-                      {activeDropdown === item.name && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-56 bg-background-elevated border border-border rounded-lg shadow-xl overflow-hidden"
-                        >
-                          {item.submenu.map((subItem) => (
-                            <a
-                              key={subItem.name}
-                              href={subItem.href}
-                              onClick={(e) => handleNavigation(subItem.href, e)}
-                              className="block px-4 py-3 text-sm text-text-primary hover:bg-accent hover:text-primary transition-colors duration-150"
-                            >
-                              {subItem.name}
-                            </a>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                  href={item.href}
+                  onClick={(e) => handleNavigation(item.href, e)}
+                  className={cn(
+                    "flex items-center px-3 py-2 text-sm font-medium rounded-lg",
+                    "text-text-primary hover:text-primary transition-colors duration-200",
+                    "hover:bg-accent/50"
                   )}
-                </div>
+                >
+                  {item.name}
+                </a>
               ))}
             </div>
 
@@ -246,29 +201,14 @@ export default function Navbar() {
             >
               <div className="px-4 py-6 space-y-2">
                 {navigation.map((item) => (
-                  <div key={item.name}>
-                    <a
-                      href={item.href}
-                      onClick={(e) => handleNavigation(item.href, e)}
-                      className="block px-4 py-3 text-base font-medium text-text-primary hover:text-primary hover:bg-accent rounded-lg transition-colors duration-200"
-                    >
-                      {item.name}
-                    </a>
-                    {item.submenu && (
-                      <div className="ml-4 mt-2 space-y-1">
-                        {item.submenu.map((subItem) => (
-                          <a
-                            key={subItem.name}
-                            href={subItem.href}
-                            onClick={(e) => handleNavigation(subItem.href, e)}
-                            className="block px-4 py-2 text-sm text-text-secondary hover:text-primary hover:bg-accent rounded-lg transition-colors duration-200"
-                          >
-                            {subItem.name}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleNavigation(item.href, e)}
+                    className="block px-4 py-3 text-base font-medium text-text-primary hover:text-primary hover:bg-accent rounded-lg transition-colors duration-200"
+                  >
+                    {item.name}
+                  </a>
                 ))}
 
                 <div className="pt-4 border-t border-border">

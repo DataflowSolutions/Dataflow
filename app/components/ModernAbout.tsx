@@ -49,7 +49,7 @@ const team = [
   {
     name: "Albin Hasanaj",
     role: "Delägare / Developer",
-    bio: "",
+    bio: "tel: +46 72 877 53 59",
     image: "/api/placeholder/300/300",
     skills: ["React", "Node.js", "AWS", "TypeScript"],
     social: {
@@ -61,7 +61,7 @@ const team = [
   {
     name: "Oliver Söderlund Granzer",
     role: "Delägare / Developer",
-    bio: "tel: +46 (0)70 042 73 62",
+    bio: "tel: +46 70 042 73 62",
     image: "/api/placeholder/300/300",
     skills: ["React", "Node.js", "TypeScript", "Next.js", "Python"],
     social: {
@@ -73,7 +73,7 @@ const team = [
   {
     name: "Melvin Sundberg",
     role: "Marknadsförare",
-    bio: "",
+    bio: "tel: +46 79 347 10 09",
     image: "/api/placeholder/300/300",
     skills: ["Marknadsföring", "Content Creation"],
     social: {

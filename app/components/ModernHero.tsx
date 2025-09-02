@@ -136,10 +136,9 @@ export default function ModernHero() {
                 size="xl"
                 leftIcon={<Play className="w-5 h-5" />}
                 onClick={() =>
-                  window.open(
-                    "https://calendly.com/admin-dataflowsolutions-mupp/30min",
-                    "_blank"
-                  )
+                  document
+                    .getElementById("portfolio")
+                    ?.scrollIntoView({ behavior: "smooth" })
                 }
                 className="cursor-pointer"
               >
