@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import { Toaster } from "react-hot-toast";
-import Footer from "./components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from "./providers/ThemeProvider";
+import ModernNavbar from "./components/ModernNavbar";
+import ModernFooter from "./components/ModernFooter";
 
 export const metadata: Metadata = {
   title: "Dataflow Solutions – Modern webbutveckling och SaaS-lösningar",
@@ -66,19 +67,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-background text-text-primary">
-        <Toaster
-          position="top-right"
-          toastOptions={{
-            className: "bg-background text-text-primary",
-            style: {
-              background: "#1e1e2f",
-              color: "#ffffff",
-            },
-          }}
-        />
-        <Navbar />
-        <div className="pt-16 ">{children}</div>
-        <Footer />
+        <ThemeProvider>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              className: "bg-background text-text-primary",
+              style: {
+                background: "#1e1e2f",
+                color: "#ffffff",
+              },
+            }}
+          />
+          <ModernNavbar />
+          <main>{children}</main>
+          <ModernFooter />
+        </ThemeProvider>
       </body>
       <SpeedInsights />
       <Analytics />
