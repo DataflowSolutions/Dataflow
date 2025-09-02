@@ -10,7 +10,7 @@ import {
   Github,
   Instagram,
   Heart,
-  ExternalLink,
+  // ExternalLink,
   //   MessageSquare,
 } from "lucide-react";
 // import Button from "./ui/Button";
@@ -32,21 +32,21 @@ const footerLinks = {
     { name: "Blogg", href: "/blog" },
     { name: "Karriär", href: "/careers" },
   ],
-  resources: [
-    { name: "Dokumentation", href: "/docs" },
-    { name: "API Referenser", href: "/api" },
-    { name: "Support Center", href: "/support" },
-    { name: "Community", href: "/community" },
-    { name: "Tutorials", href: "/tutorials" },
-    { name: "Webinars", href: "/webinars" },
-  ],
+  // resources: [
+  //   { name: "Dokumentation", href: "/docs" },
+  //   { name: "API Referenser", href: "/api" },
+  //   { name: "Support Center", href: "/support" },
+  //   { name: "Community", href: "/community" },
+  //   { name: "Tutorials", href: "/tutorials" },
+  //   { name: "Webinars", href: "/webinars" },
+  // ],
   legal: [
     { name: "Integritetspolicy", href: "/privacy" },
     { name: "Användarvillkor", href: "/terms" },
-    { name: "Cookie Policy", href: "/cookies" },
-    { name: "GDPR", href: "/gdpr" },
-    { name: "Säkerhet", href: "/security" },
-    { name: "Compliance", href: "/compliance" },
+    // { name: "Cookie Policy", href: "/cookies" },
+    // { name: "GDPR", href: "/gdpr" },
+    // { name: "Säkerhet", href: "/security" },
+    // { name: "Compliance", href: "/compliance" },
   ],
 };
 
@@ -222,7 +222,7 @@ export default function ModernFooter() {
             </motion.div>
 
             {/* Resources */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -244,7 +244,7 @@ export default function ModernFooter() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </motion.div> */}
 
             {/* Legal */}
             <motion.div
