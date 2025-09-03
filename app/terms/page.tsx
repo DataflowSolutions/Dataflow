@@ -59,11 +59,13 @@ export default function TermsPage() {
               <p>Dataflow Solutions tillhandahåller:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Webbutvecklingstjänster</li>
+                <li>AI-integration</li>
                 <li>SaaS-utveckling</li>
-                <li>Mobilapplikationer</li>
+                <li>Backend- och API-utveckling</li>
                 <li>UI/UX-design</li>
                 <li>DevOps och hosting</li>
-                <li>Teknisk konsultation</li>
+                <li>Sökmotorsoptimerad webbplats</li>
+                <li>Säkerhetslösningar</li>
               </ul>
             </div>
           </Card>
@@ -183,7 +185,7 @@ export default function TermsPage() {
               <p>För frågor om dessa villkor, kontakta oss:</p>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-primary" />
-                <span>legal@dataflowsolutions.se</span>
+                <span>info@dataflowsolutions.se</span>
               </div>
             </div>
           </Card>

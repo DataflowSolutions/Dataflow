@@ -8,10 +8,10 @@ import {
   User,
   ArrowRight,
   Tag,
-  TrendingUp,
+  // TrendingUp,
   BookOpen,
-  Code,
-  Zap,
+  // Code,
+  // Zap,
 } from "lucide-react";
 import Card from "./ui/Card";
 import Button from "./ui/Button";
@@ -19,32 +19,32 @@ import Badge from "./Badge";
 import { getFeaturedPost, getRegularPosts, BlogPost } from "../../lib/blogData";
 import Link from "next/link";
 
-const categories = [
-  {
-    name: "Technology",
-    count: 15,
-    icon: Code,
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    name: "Development",
-    count: 23,
-    icon: BookOpen,
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    name: "Design",
-    count: 12,
-    icon: Zap,
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    name: "Performance",
-    count: 8,
-    icon: TrendingUp,
-    color: "from-orange-500 to-red-500",
-  },
-];
+// const categories = [
+//   {
+//     name: "Technology",
+//     count: 15,
+//     icon: Code,
+//     color: "from-blue-500 to-cyan-500",
+//   },
+//   {
+//     name: "Development",
+//     count: 23,
+//     icon: BookOpen,
+//     color: "from-purple-500 to-pink-500",
+//   },
+//   {
+//     name: "Design",
+//     count: 12,
+//     icon: Zap,
+//     color: "from-green-500 to-emerald-500",
+//   },
+//   {
+//     name: "Performance",
+//     count: 8,
+//     icon: TrendingUp,
+//     color: "from-orange-500 to-red-500",
+//   },
+// ];
 
 export default function ModernBlog() {
   const [ref, inView] = useInView({
@@ -103,7 +103,7 @@ export default function ModernBlog() {
         </motion.div>
 
         {/* Categories */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -133,7 +133,7 @@ export default function ModernBlog() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Featured Post */}
         {featuredPost && (
@@ -152,7 +152,6 @@ export default function ModernBlog() {
                       <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-lg mx-auto mb-4 flex items-center justify-center">
                         <BookOpen className="w-10 h-10 text-white" />
                       </div>
-                      <p className="text-text-secondary">Featured Article</p>
                     </div>
                   </div>
                   <div className="absolute top-4 left-4">

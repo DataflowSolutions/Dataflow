@@ -20,7 +20,7 @@ const portfolioItems = [
     id: 1,
     title: "Hirena",
     description:
-      "Hirena är en svensk AI-baserad jobbplattform som analyserar CV och personliga brev, matchar kandidater med relevanta jobbannonser och hjälper användare att skapa anpassade ansökningar på ett enkelt och effektivt sätt.",
+      "OBS: Detta är under konstruktion och kan innehålla en del buggar. Hirena är en svensk AI-baserad jobbplattform som analyserar CV och personliga brev, matchar kandidater med relevanta jobbannonser och hjälper användare att skapa anpassade ansökningar på ett enkelt och effektivt sätt.",
     image: "/api/placeholder/600/400",
     category: "SaaS",
     tech: [
@@ -33,11 +33,11 @@ const portfolioItems = [
     ],
     liveUrl: "https://hirena.se",
     githubUrl: "",
-    results: {
-      conversion: "+340%",
-      performance: "100/100",
-      users: "1k+ MAU",
-    },
+    // results: {
+    //   conversion: "+340%",
+    //   performance: "100/100",
+    //   users: "500+ MAU",
+    // },
     year: "2025",
   },
 ];
@@ -194,7 +194,7 @@ export default function ModernPortfolio() {
                   </div>
 
                   {/* Results */}
-                  <div className="border-t border-border pt-4">
+                  {/* <div className="border-t border-border pt-4">
                     <div className="grid grid-cols-3 gap-4 text-center">
                       <div>
                         <div className="text-lg font-bold text-success">
@@ -219,7 +219,7 @@ export default function ModernPortfolio() {
                         <div className="text-xs text-text-muted">Users</div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </Card>
             </motion.div>

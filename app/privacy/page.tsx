@@ -49,7 +49,6 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul className="list-disc list-inside text-text-secondary space-y-2 ml-4">
                 <li>Kontaktar oss via vårt kontaktformulär</li>
-                <li>Prenumererar på vårt nyhetsbrev</li>
                 <li>Deltar i våra webinarier eller events</li>
                 <li>Använder våra tjänster</li>
               </ul>
@@ -64,10 +63,6 @@ export default function PrivacyPolicyPage() {
               <p>Vi använder den insamlade informationen för att:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Svara på dina förfrågningar och ge support</li>
-                <li>
-                  Skicka nyhetsbrev och marknadsföringskommunikation (med ditt
-                  samtycke)
-                </li>
                 <li>Förbättra våra tjänster och användarupplevelse</li>
                 <li>Följa juridiska krav och förordningar</li>
               </ul>
@@ -108,7 +103,7 @@ export default function PrivacyPolicyPage() {
             </div>
           </Card>
 
-          <Card variant="elevated" className="p-8">
+          {/* <Card variant="elevated" className="p-8">
             <h2 className="text-2xl font-bold text-text-primary mb-4">
               5. Cookies
             </h2>
@@ -126,11 +121,11 @@ export default function PrivacyPolicyPage() {
                 .
               </p>
             </div>
-          </Card>
+          </Card> */}
 
           <Card variant="elevated" className="p-8">
             <h2 className="text-2xl font-bold text-text-primary mb-4">
-              6. Kontakt
+              5. Kontakt
             </h2>
             <div className="text-text-secondary space-y-4">
               <p>
@@ -139,7 +134,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-primary" />
-                <span>privacy@dataflowsolutions.se</span>
+                <span>info@dataflowsolutions.se</span>
               </div>
             </div>
           </Card>
