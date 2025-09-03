@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   Code2,
-  Smartphone,
   Cloud,
   Database,
   Rocket,
@@ -13,6 +12,7 @@ import {
   BarChart3,
   Zap,
   ArrowRight,
+  Sparkles,
 } from "lucide-react";
 import Card from "./ui/Card";
 import Button from "./ui/Button";
@@ -33,11 +33,16 @@ const services = [
     color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: Smartphone,
-    title: "Mobilappar",
+    icon: Sparkles,
+    title: "AI-integration",
     description:
-      "Inbyggda och hybridappar som fungerar sömlöst på alla plattformar med enhetlig användarupplevelse.",
-    features: ["React Native", "Flutter", "iOS & Android", "Cross-platform"],
+      "Smarta AI-lösningar som automatiserar processer och förbättrar användarupplevelsen med intelligenta funktioner.",
+    features: [
+      "ChatGPT/OpenAI",
+      "Machine Learning",
+      "AI Chatbots",
+      "Automation",
+    ],
     color: "from-purple-500 to-pink-500",
   },
   {
