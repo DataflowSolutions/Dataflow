@@ -11,12 +11,12 @@ import {
   ArrowLeft,
   Tag,
   BookOpen,
-  Share2,
 } from "lucide-react";
 import Link from "next/link";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 import Badge from "../../components/Badge";
+import ShareButton from "../../components/ShareButton";
 import { getPostById, BlogPost } from "../../../lib/blogData";
 
 interface BlogPostPageProps {
@@ -110,7 +110,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-lg mx-auto mb-4 flex items-center justify-center">
                     <BookOpen className="w-10 h-10 text-white" />
                   </div>
-                  <p className="text-text-secondary">Article Image</p>
                 </div>
               </div>
               {post.featured && (
@@ -163,9 +162,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
                 {/* Share Buttons */}
                 <div className="flex items-center space-x-2">
-                  <Button variant="ghost" size="sm" className="cursor-pointer">
-                    <Share2 className="w-4 h-4" />
-                  </Button>
+                  <ShareButton
+                    url={`https://www.dataflowsolutions.se/blog/${post.id}`}
+                    title={post.title}
+                    description={post.excerpt}
+                  />
                 </div>
               </div>
 
