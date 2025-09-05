@@ -33,18 +33,47 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle hash navigation when the component mounts or pathname changes
+  useEffect(() => {
+    if (pathname === "/" && window.location.hash) {
+      const hash = window.location.hash;
+      const sectionId = hash.substring(1);
+
+      // Small delay to ensure page is loaded
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const navbar = document.querySelector("header");
+          const navbarHeight = navbar ? navbar.offsetHeight : 80;
+          const elementPosition = element.offsetTop - navbarHeight - 20;
+
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 500);
+    }
+  }, [pathname]);
+
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   // Custom navigation handler for homepage sections
-  const handleNavigation = (href: string, e: React.MouseEvent) => {
+  const handleNavigation = (
+    href: string,
+    e: React.MouseEvent | React.TouchEvent
+  ) => {
     e.preventDefault();
+    e.stopPropagation();
+
+    // Close mobile menu first
+    setIsMobileMenuOpen(false);
 
     // If it's the blog link, navigate directly
     if (href === "/blog") {
       router.push("/blog");
-      setIsMobileMenuOpen(false);
       return;
     }
 
@@ -56,19 +85,38 @@ export default function Navbar() {
       if (pathname !== "/") {
         // Navigate to homepage and then scroll to section
         router.push(`/${href}`);
-        setIsMobileMenuOpen(false);
         return;
       }
 
-      // If we're already on homepage, just scroll to section
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-      setIsMobileMenuOpen(false);
+      // If we're already on homepage, scroll to section with a small delay for mobile
+      setTimeout(
+        () => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            // Get the navbar height to offset the scroll position
+            const navbar = document.querySelector("header");
+            const navbarHeight = navbar ? navbar.offsetHeight : 80;
+
+            const elementPosition = element.offsetTop - navbarHeight - 20;
+
+            // Check if smooth scrolling is supported (iOS Safari issue)
+            const isIOSSafari =
+              /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+              !(window as unknown as { MSStream?: unknown }).MSStream;
+
+            if (isIOSSafari) {
+              // For iOS Safari, use a more reliable scrolling method
+              window.scrollTo(0, elementPosition);
+            } else {
+              window.scrollTo({
+                top: elementPosition,
+                behavior: "smooth",
+              });
+            }
+          }
+        },
+        isMobileMenuOpen ? 300 : 100
+      ); // Longer delay if mobile menu was open
     }
   };
 
@@ -160,9 +208,9 @@ export default function Navbar() {
                   variant="gradient"
                   size="md"
                   onClick={() => {
-                    // Create a mock event for navigation
                     const mockEvent = {
                       preventDefault: () => {},
+                      stopPropagation: () => {},
                     } as React.MouseEvent;
                     handleNavigation("#contact", mockEvent);
                   }}
@@ -201,14 +249,13 @@ export default function Navbar() {
             >
               <div className="px-4 py-6 space-y-2">
                 {navigation.map((item) => (
-                  <a
+                  <button
                     key={item.name}
-                    href={item.href}
                     onClick={(e) => handleNavigation(item.href, e)}
-                    className="block px-4 py-3 text-base font-medium text-text-primary hover:text-primary hover:bg-accent rounded-lg transition-colors duration-200"
+                    className="block w-full text-left px-4 py-3 text-base font-medium text-text-primary hover:text-primary hover:bg-accent rounded-lg transition-colors duration-200 touch-manipulation"
                   >
                     {item.name}
-                  </a>
+                  </button>
                 ))}
 
                 <div className="pt-4 border-t border-border">
@@ -218,6 +265,7 @@ export default function Navbar() {
                     onClick={() => {
                       const mockEvent = {
                         preventDefault: () => {},
+                        stopPropagation: () => {},
                       } as React.MouseEvent;
                       handleNavigation("#contact", mockEvent);
                     }}

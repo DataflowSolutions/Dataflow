@@ -63,9 +63,15 @@ export default function ShareButton({
 
   // Social media share URLs
   const shareUrls = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+      url
+    )}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+      url
+    )}&text=${encodeURIComponent(title)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+      url
+    )}`,
   };
 
   const openShareWindow = (shareUrl: string) => {
@@ -98,7 +104,7 @@ export default function ShareButton({
               className="fixed inset-0 z-40"
               onClick={() => setIsOpen(false)}
             />
-            
+
             {/* Dropdown Menu */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -111,7 +117,7 @@ export default function ShareButton({
                 <h4 className="text-sm font-semibold text-text-primary mb-3">
                   Dela denna artikel
                 </h4>
-                
+
                 <div className="space-y-2">
                   {/* Copy Link */}
                   <button
