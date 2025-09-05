@@ -215,7 +215,7 @@ export default function ModernHero() {
 
               {/* Floating Performance Badges */}
               <motion.div
-                className="absolute -top-2 -right-4 bg-success text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
+                className="absolute -top-2 -right-4 bg-[#0b835b] text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >

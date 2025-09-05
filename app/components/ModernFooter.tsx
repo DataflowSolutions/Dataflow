@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation";
 import {
   Mail,
   Phone,
@@ -17,18 +18,18 @@ import {
 
 const footerLinks = {
   services: [
-    { name: "Webbutveckling", href: "#services" },
-    { name: "SaaS-utveckling", href: "#services" },
-    { name: "Mobilappar", href: "#services" },
-    { name: "UI/UX Design", href: "#services" },
-    { name: "DevOps & Hosting", href: "#services" },
-    { name: "Konsultation", href: "#contact" },
+    { name: "Webbutveckling", href: "/#services" },
+    { name: "SaaS-utveckling", href: "/#services" },
+    { name: "Mobilappar", href: "/#services" },
+    { name: "UI/UX Design", href: "/#services" },
+    { name: "DevOps & Hosting", href: "/#services" },
+    { name: "Konsultation", href: "/#contact" },
   ],
   company: [
-    { name: "Om oss", href: "#about" },
-    { name: "Vårt team", href: "#about" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Case Studies", href: "#portfolio" },
+    { name: "Om oss", href: "/#about" },
+    { name: "Vårt team", href: "/#about" },
+    { name: "Portfolio", href: "/#portfolio" },
+    { name: "Case Studies", href: "/#portfolio" },
     { name: "Blogg", href: "/blog" },
     { name: "Karriär", href: "/careers" },
   ],
@@ -79,6 +80,45 @@ const socialLinks = [
 
 export default function ModernFooter() {
   const currentYear = new Date().getFullYear();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Navigation handler for footer links
+  const handleNavigation = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+
+    // If it's the blog link or other pages, navigate directly
+    if (href === "/blog" || (href.startsWith("/") && !href.startsWith("/#"))) {
+      router.push(href);
+      return;
+    }
+
+    // If it's a homepage section link (starts with /# )
+    if (href.startsWith("/#")) {
+      const sectionId = href.substring(2); // Remove the /#
+
+      // If we're not on the homepage, navigate to homepage first
+      if (pathname !== "/") {
+        router.push(href);
+        return;
+      }
+
+      // If we're already on homepage, scroll to section
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const navbar = document.querySelector("header");
+          const navbarHeight = navbar ? navbar.offsetHeight : 80;
+          const elementPosition = element.offsetTop - navbarHeight - 20;
+
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <footer className="bg-background-elevated border-t border-border relative overflow-hidden">
@@ -188,7 +228,8 @@ export default function ModernFooter() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-text-secondary hover:text-primary transition-colors duration-200 text-sm"
+                      onClick={(e) => handleNavigation(link.href, e)}
+                      className="text-text-secondary hover:text-primary transition-colors duration-200 text-sm cursor-pointer"
                     >
                       {link.name}
                     </a>
@@ -212,7 +253,8 @@ export default function ModernFooter() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-text-secondary hover:text-primary transition-colors duration-200 text-sm"
+                      onClick={(e) => handleNavigation(link.href, e)}
+                      className="text-text-secondary hover:text-primary transition-colors duration-200 text-sm cursor-pointer"
                     >
                       {link.name}
                     </a>
@@ -261,7 +303,8 @@ export default function ModernFooter() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-text-secondary hover:text-primary transition-colors duration-200 text-sm"
+                      onClick={(e) => handleNavigation(link.href, e)}
+                      className="text-text-secondary hover:text-primary transition-colors duration-200 text-sm cursor-pointer"
                     >
                       {link.name}
                     </a>

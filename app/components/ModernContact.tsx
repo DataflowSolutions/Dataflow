@@ -190,12 +190,16 @@ export default function ModernContact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-text-primary mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-text-primary mb-2"
+                    >
                       Namn *
                     </label>
                     <input
                       type="text"
                       name="name"
+                      id="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -205,12 +209,16 @@ export default function ModernContact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-text-primary mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-text-primary mb-2"
+                    >
                       E-post *
                     </label>
                     <input
                       type="email"
                       name="email"
+                      id="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
@@ -221,12 +229,16 @@ export default function ModernContact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-text-primary mb-2">
+                  <label
+                    htmlFor="company"
+                    className="block text-sm font-medium text-text-primary mb-2"
+                  >
                     Företag
                   </label>
                   <input
                     type="text"
                     name="company"
+                    id="company"
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-text-primary transition-colors duration-200"
@@ -236,11 +248,15 @@ export default function ModernContact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-text-primary mb-2">
+                    <label
+                      htmlFor="projectType"
+                      className="block text-sm font-medium text-text-primary mb-2"
+                    >
                       Projekttyp
                     </label>
                     <select
                       name="projectType"
+                      id="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-text-primary transition-colors duration-200"
@@ -256,11 +272,15 @@ export default function ModernContact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-text-primary mb-2">
+                    <label
+                      htmlFor="budget"
+                      className="block text-sm font-medium text-text-primary mb-2"
+                    >
                       Budget
                     </label>
                     <select
                       name="budget"
+                      id="budget"
                       value={formData.budget}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-text-primary transition-colors duration-200"
@@ -275,11 +295,15 @@ export default function ModernContact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-text-primary mb-2">
+                  <label
+                    htmlFor="timeline"
+                    className="block text-sm font-medium text-text-primary mb-2"
+                  >
                     Tidslinje
                   </label>
                   <select
                     name="timeline"
+                    id="timeline"
                     value={formData.timeline}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-text-primary transition-colors duration-200"
@@ -295,11 +319,15 @@ export default function ModernContact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-text-primary mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-text-primary mb-2"
+                  >
                     Meddelande *
                   </label>
                   <textarea
                     name="message"
+                    id="message"
                     value={formData.message}
                     onChange={handleChange}
                     required

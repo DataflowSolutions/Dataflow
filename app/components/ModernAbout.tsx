@@ -277,7 +277,7 @@ export default function ModernAbout() {
                     <h4 className="text-xl font-bold text-text-primary mb-1">
                       {member.name}
                     </h4>
-                    <p className="text-primary font-medium mb-3">
+                    <p className="text-[#9091da] font-medium mb-3">
                       {member.role}
                     </p>
                     <p className="text-text-secondary text-sm mb-4 leading-relaxed">
@@ -305,6 +305,7 @@ export default function ModernAbout() {
                           }
                           className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer"
                         >
+                          <span className="sr-only">LinkedIn</span>
                           <Linkedin className="w-4 h-4" />
                         </button>
                       )}
@@ -315,6 +316,7 @@ export default function ModernAbout() {
                           }
                           className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer"
                         >
+                          <span className="sr-only">GitHub</span>
                           <Github className="w-4 h-4" />
                         </button>
                       )}
@@ -324,6 +326,7 @@ export default function ModernAbout() {
                         }
                         className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer"
                       >
+                        <span className="sr-only">Email</span>
                         <Mail className="w-4 h-4" />
                       </button>
                     </div>

@@ -9,12 +9,12 @@ import Button from "./ui/Button";
 import { cn } from "@/lib/utils";
 
 const navigation = [
-  { name: "Hem", href: "#home" },
-  { name: "Tjänster", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Om oss", href: "#about" },
+  { name: "Hem", href: "/#home" },
+  { name: "Tjänster", href: "/#services" },
+  { name: "Portfolio", href: "/#portfolio" },
+  { name: "Om oss", href: "/#about" },
   { name: "Blogg", href: "/blog" },
-  { name: "Kontakt", href: "#contact" },
+  { name: "Kontakt", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -77,14 +77,14 @@ export default function Navbar() {
       return;
     }
 
-    // If it's a section link (starts with #)
-    if (href.startsWith("#")) {
-      const sectionId = href.substring(1); // Remove the #
+    // If it's a homepage section link (starts with /# )
+    if (href.startsWith("/#")) {
+      const sectionId = href.substring(2); // Remove the /#
 
       // If we're not on the homepage, navigate to homepage first
       if (pathname !== "/") {
         // Navigate to homepage and then scroll to section
-        router.push(`/${href}`);
+        router.push(href);
         return;
       }
 
@@ -154,10 +154,9 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a
-                href="#home"
-                onClick={(e) => handleNavigation("#home", e)}
-                className="flex items-center space-x-2"
+              <button
+                onClick={(e) => handleNavigation("/#home", e)}
+                className="flex items-center space-x-2 cursor-pointer"
               >
                 <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-lg">D</span>
@@ -165,7 +164,7 @@ export default function Navbar() {
                 <span className="text-xl font-bold gradient-text">
                   Dataflow Solutions
                 </span>
-              </a>
+              </button>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -194,7 +193,17 @@ export default function Navbar() {
                 size="sm"
                 onClick={toggleTheme}
                 className="w-10 h-10 p-0 cursor-pointer"
+                aria-label={
+                  theme === "dark"
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+                }
               >
+                <span className="sr-only">
+                  {theme === "dark"
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"}
+                </span>
                 {theme === "dark" ? (
                   <Sun className="h-5 w-5" />
                 ) : (
@@ -212,7 +221,7 @@ export default function Navbar() {
                       preventDefault: () => {},
                       stopPropagation: () => {},
                     } as React.MouseEvent;
-                    handleNavigation("#contact", mockEvent);
+                    handleNavigation("/#contact", mockEvent);
                   }}
                   className="cursor-pointer"
                 >
@@ -227,6 +236,9 @@ export default function Navbar() {
                 onClick={handleMobileMenuToggle}
                 className="lg:hidden w-10 h-10 p-0"
               >
+                <span className="sr-only">
+                  {isMobileMenuOpen ? "Close menu" : "Open menu"}
+                </span>
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6" />
                 ) : (
@@ -267,7 +279,7 @@ export default function Navbar() {
                         preventDefault: () => {},
                         stopPropagation: () => {},
                       } as React.MouseEvent;
-                      handleNavigation("#contact", mockEvent);
+                      handleNavigation("/#contact", mockEvent);
                     }}
                     className="w-full"
                   >

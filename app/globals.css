@@ -5,7 +5,7 @@
   --background: #0a0a0a;
   --background-elevated: #111111;
   --background-muted: #1a1a1a;
-  --primary: #6366f1;
+  --primary: #4b4dc0;
   --primary-foreground: #ffffff;
   --secondary: #8b5cf6;
   --accent: #27272a;
@@ -17,8 +17,8 @@
   --ring: #6366f1;
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --success: #10b981;
+  --text-muted: #888891;
+  --success: #0e9b6c;
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;

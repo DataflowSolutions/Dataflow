@@ -314,6 +314,9 @@ export default function ModernBlog() {
                           size="sm"
                           className="cursor-pointer"
                         >
+                          <span className="sr-only">
+                            Read more about {post.title}
+                          </span>
                           <ArrowRight className="w-4 h-4" />
                         </Button>
                       </Link>

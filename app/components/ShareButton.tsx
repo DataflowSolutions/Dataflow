@@ -92,6 +92,7 @@ export default function ShareButton({
         onClick={handleNativeShare}
         className="cursor-pointer relative"
       >
+        <span className="sr-only">Dela</span>
         <Share2 className="w-4 h-4" />
       </Button>
 
