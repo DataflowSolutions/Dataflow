@@ -10,7 +10,6 @@ import {
   //   Linkedin,
   Github,
   Instagram,
-  Heart,
   // ExternalLink,
   //   MessageSquare,
 } from "lucide-react";
@@ -31,7 +30,7 @@ const footerLinks = {
     { name: "Portfolio", href: "/#portfolio" },
     { name: "Case Studies", href: "/#portfolio" },
     { name: "Blogg", href: "/blog" },
-    { name: "Karriär", href: "/careers" },
+    // { name: "Karriär", href: "/careers" },
   ],
   // resources: [
   //   { name: "Dokumentation", href: "/docs" },
@@ -326,11 +325,11 @@ export default function ModernFooter() {
               className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
             >
               {/* Copyright */}
-              <div className="flex items-center text-text-muted text-sm">
-                <span>© {currentYear} Dataflow Solutions. Skapad med</span>
-                <Heart className="w-4 h-4 mx-1 text-red-500 fill-current" />
-                <span>i Dalarna, Sverige.</span>
-              </div>
+
+              <span className="text-text-muted text-sm text-center">
+                © {currentYear} Dataflow Solutions. Skapad med ❤️ i Dalarna,
+                Sverige.
+              </span>
 
               {/* Social Links */}
               <div className="flex items-center space-x-4">
