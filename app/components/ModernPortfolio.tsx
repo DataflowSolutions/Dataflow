@@ -44,7 +44,7 @@ const portfolioItems = [
       "Genom samarbete med en partnerbyrå har vi arbetat med att uppdatera och förbättra Blackstone Steakhouse webbplats. Vi har hanterat menyuppdateringar, buggfixar, optimeringar och löpande underhåll. Dessutom har vi arbetat med deras förbeställningssystem – hantering av stora bokningar, lösning av kritiska fel och förbättrad kundupplevelse.",
     image: "/images/blackstone.png",
     category: "Restaurang",
-    tech: ["WordPress", "PHP", "JavaScript", "MySQL", "WCAG 2.1 AA"],
+    tech: ["WordPress", "PHP", "JavaScript", "MySQL"],
     liveUrl: "https://blackstonesteakhouse.se",
     githubUrl: "",
     caseStudyUrl: "/case-studies/blackstone",
