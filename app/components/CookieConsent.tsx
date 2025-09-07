@@ -34,13 +34,20 @@ export default function CookieConsent() {
       // Load saved preferences
       const savedPreferences = localStorage.getItem(COOKIE_PREFERENCES_KEY);
       if (savedPreferences) {
-        setPreferences(JSON.parse(savedPreferences));
+        const prefs = JSON.parse(savedPreferences);
+        setPreferences(prefs);
+        // Update consent immediately for existing preferences
+        updateGtagConsent(prefs);
       }
     }
   }, []);
 
   // Enable/disable Google Analytics based on consent
   useEffect(() => {
+    updateGtagConsent(preferences);
+  }, [preferences]);
+
+  const updateGtagConsent = (prefs: CookiePreferences) => {
     type GtagWindow = {
       gtag?: (
         command: string,
@@ -54,11 +61,11 @@ export default function CookieConsent() {
       (window as unknown as GtagWindow).gtag
     ) {
       (window as unknown as GtagWindow).gtag!("consent", "update", {
-        analytics_storage: preferences.analytics ? "granted" : "denied",
-        ad_storage: preferences.marketing ? "granted" : "denied",
+        analytics_storage: prefs.analytics ? "granted" : "denied",
+        ad_storage: prefs.marketing ? "granted" : "denied",
       });
     }
-  }, [preferences]);
+  };
 
   const handleAcceptAll = () => {
     const newPreferences = {
@@ -89,10 +96,10 @@ export default function CookieConsent() {
     setPreferences(prefs);
     setShowBanner(false);
 
-    // Trigger page reload to apply analytics if consented
-    if (prefs.analytics) {
+    // Trigger page reload to apply analytics consent changes
+    setTimeout(() => {
       window.location.reload();
-    }
+    }, 100);
   };
 
   const handlePreferenceChange = (

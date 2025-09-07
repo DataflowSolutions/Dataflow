@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   ExternalLink,
-  Github,
   ArrowRight,
   //   Star,
   Calendar,
@@ -14,58 +13,116 @@ import Card from "./ui/Card";
 import Button from "./ui/Button";
 import Badge from "./Badge";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const portfolioItems = [
   {
     id: 1,
     title: "Hirena",
     description:
-      "OBS: Detta är under konstruktion och kan innehålla en del buggar. Hirena är en svensk AI-baserad jobbplattform som analyserar CV och personliga brev, matchar kandidater med relevanta jobbannonser och hjälper användare att skapa anpassade ansökningar på ett enkelt och effektivt sätt.",
-    image: "/api/placeholder/600/400",
+      "Hirena är en svensk AI-baserad jobbplattform som analyserar CV och personliga brev för att matcha kandidater med relevanta jobbannonser. Plattformen använder semantisk sökning med embeddings för smartare och mer träffsäkra resultat.",
+    image: "/images/hirena.png",
     category: "SaaS",
     tech: [
       "Next.js",
-      "PostgreSQL",
-      "AI/ML",
-      "Tailwind CSS",
       "TypeScript",
-      "Embeddings",
+      "PostgreSQL",
+      "pgvector",
+      "Python",
+      "AI/ML",
+      "Sentence-BERT",
+      "Tailwind CSS",
     ],
     liveUrl: "https://hirena.se",
     githubUrl: "",
-    // results: {
-    //   conversion: "+340%",
-    //   performance: "100/100",
-    //   users: "500+ MAU",
-    // },
+    year: "2025",
+  },
+  {
+    id: 2,
+    title: "Blackstone Steakhouse",
+    description:
+      "Genom samarbete med en partnerbyrå har vi arbetat med att uppdatera och förbättra Blackstone Steakhouse webbplats. Vi har hanterat menyuppdateringar, buggfixar, optimeringar och löpande underhåll. Dessutom har vi arbetat med deras förbeställningssystem – hantering av stora bokningar, lösning av kritiska fel och förbättrad kundupplevelse.",
+    image: "/images/blackstone.png",
+    category: "Restaurang",
+    tech: ["WordPress", "PHP", "JavaScript", "MySQL", "WCAG 2.1 AA"],
+    liveUrl: "https://blackstonesteakhouse.se",
+    githubUrl: "",
+    caseStudyUrl: "/case-studies/blackstone",
+    year: "2025",
+  },
+  {
+    id: 3,
+    title: "Skedvi Bröd",
+    description:
+      "Vi har arbetat med att bygga nya sidor, uppdatera menyer och optimera produktsidor för Skedvi Bröds webbplats. Fokus har legat på förbättrad användarupplevelse och löpande optimeringar.",
+    image: "/images/skedvibrod.png",
+    category: "E-handel",
+    tech: ["WordPress", "WooCommerce", "PHP", "JavaScript", "CSS"],
+    liveUrl: "https://skedvibrod.se",
+    githubUrl: "",
+    year: "2025",
+  },
+  {
+    id: 4,
+    title: "Carl Larsson-gården",
+    description:
+      "Vi utvecklar just nu en ny modern webbplats för Carl Larsson-gården. Projektet omfattar ny design, förbättrad mobilupplevelse, optimerat bokningsflöde och bättre SEO för att nå fler besökare.",
+    image: "/images/carllarsson.png",
+    category: "Kultur",
+    tech: ["WordPress", "PHP", "JavaScript", "Booking System", "SEO"],
+    liveUrl: "https://carllarssongarden.se",
+    githubUrl: "",
+    year: "2025",
+  },
+  {
+    id: 5,
+    title: "Sylwan & Fenger-Krog",
+    description:
+      "Vi har arbetat med WCAG 2.1 AA-anpassningar och optimering av tillgängligheten för advokatbyrån Sylwan & Fenger-Krog. Arbetet inkluderade förbättrad semantisk struktur, kontrastnivåer och en mer inkluderande användarupplevelse.",
+    image: "/images/sylwan.png",
+    category: "Juridik",
+    tech: ["WordPress", "WCAG 2.1 AA", "PHP", "JavaScript", "CSS"],
+    liveUrl: "https://sylwan.se",
+    githubUrl: "",
+    year: "2025",
+  },
+  {
+    id: 6,
+    title: "Din hemsida",
+    description:
+      "Är din hemsida föråldrad eller behöver den en uppgradering? Vi hjälper dig att skapa en modern, snabb och användarvänlig webbplats som konverterar fler besökare till kunder. Kontakta oss för en kostnadsfri konsultation.",
+    image: "/api/placeholder/600/400",
+    category: "Allmänt",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "SEO"],
+    liveUrl: "#contact",
+    githubUrl: "",
     year: "2025",
   },
 ];
 
-// const testimonials = [
-//   {
-//     name: "Erik Andersson",
-//     role: "VD, TechCorp AB",
-//     content:
-//       "Dataflow Solutions översteg alla våra förväntningar. De levererade inte bara en fantastisk produkt, utan också värdefulla insikter som förändrade vår affärsmodell.",
-//     rating: 5,
-//     image: "/api/placeholder/64/64",
-//   },
-//   {
-//     name: "Maria Lindström",
-//     role: "CTO, HealthTech Solutions",
-//     content:
-//       "Professionella, pålitliga och tekniskt skickliga. Vårt vårdhanteringssystem har varit felfritt sedan lansering och våra användare älskar det.",
-//     rating: 5,
-//     image: "/api/placeholder/64/64",
-//   },
-// ];
+
+
 
 export default function ModernPortfolio() {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if we're on mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section
@@ -94,19 +151,17 @@ export default function ModernPortfolio() {
           />
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            Våra senaste
-            <span className="gradient-text"> framgångshistorier</span>
+            Portfolio
           </h2>
 
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Se hur vi har hjälpt våra kunder att uppnå extraordinära resultat
-            genom innovation, teknisk excellens och strategisk tänkande.
+            Vi har haft nöjet att bidra till utvecklingen av digitala lösningar för flera välkända varumärken, både direkt och via samarbeten med partnerbyråer. Här är ett urval av projekt vi varit delaktiga i.
           </p>
         </motion.div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          {portfolioItems.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          {(isMobile && !showAllProjects ? portfolioItems.slice(0, 3) : portfolioItems).map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 50 }}
@@ -119,42 +174,72 @@ export default function ModernPortfolio() {
               >
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                    {/* <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-lg mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-white font-bold text-2xl">
-                          {item.title.charAt(0)}
-                        </span>
+                  <div className={`w-full h-full flex items-center justify-center ${
+                    item.title === "Hirena" ? "bg-gradient-to-br from-primary/20 to-secondary/20" :
+                    item.title === "Blackstone Steakhouse" ? "bg-gradient-to-br from-black/30 via-red-900/30 to-red-600/30" :
+                    item.title === "Skedvi Bröd" ? "bg-gradient-to-br from-orange-400/30 via-yellow-400/30 to-orange-500/30" :
+                    item.title === "Carl Larsson-gården" ? "bg-gradient-to-br from-red-500/30 via-white/20 to-red-600/30" :
+                    item.title === "Sylwan & Fenger-Krog" ? "bg-gradient-to-br from-white/30 via-green-100/30 to-green-400/30" :
+                    item.title === "Din hemsida" ? "bg-gradient-to-br from-purple-500/30 via-blue-500/30 to-indigo-500/30" :
+                    "bg-gradient-to-br from-primary/20 to-secondary/20"
+                  }`}>
+                    {item.title === "Hirena" ? (
+                      <Image
+                        src="/images/hirena.png"
+                        alt={item.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="text-center flex items-center justify-center h-full">
+                        <h3 className="text-white font-bold text-2xl md:text-3xl drop-shadow-2xl text-center px-4">
+                          {item.title}
+                        </h3>
                       </div>
-                      <p className="text-text-secondary">Project Screenshot</p>
-                    </div> */}
-                    <Image
-                      src="/images/hirena.png"
-                      alt={item.title}
-                      width={600}
-                      height={400}
-                    />
+                    )}
                   </div>
 
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      leftIcon={<ExternalLink className="w-4 h-4" />}
-                      onClick={() => window.open(item.liveUrl, "_blank")}
-                      className="cursor-pointer"
-                    >
-                      Live Demo
-                    </Button>
-                    {item.githubUrl && (
+                    {item.title === "Hirena" ? (
+                      <span className="text-red-400 font-semibold text-sm bg-black/70 px-3 py-2 rounded-md">
+                        Currently not available
+                      </span>
+                    ) : item.title === "Carl Larsson-gården" ? (
+                      <span className="text-blue-400 font-semibold text-sm bg-black/70 px-3 py-2 rounded-md">
+                        Website currently being built
+                      </span>
+                    ) : item.title === "Din hemsida" ? (
                       <Button
                         variant="outline"
                         size="sm"
-                        leftIcon={<Github className="w-4 h-4 cursor-pointer" />}
-                        onClick={() => window.open(item.githubUrl, "_blank")}
+                        leftIcon={<ArrowRight className="w-4 h-4" />}
+                        onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                        className="cursor-pointer"
                       >
-                        Code
+                        Kontakta oss
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        leftIcon={<ExternalLink className="w-4 h-4" />}
+                        onClick={() => window.open(item.liveUrl, "_blank")}
+                        className="cursor-pointer"
+                      >
+                        Besök Webbplats
+                      </Button>
+                    )}
+                    {item.caseStudyUrl && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        leftIcon={<ArrowRight className="w-4 h-4" />}
+                        onClick={() => window.open(item.caseStudyUrl, "_blank")}
+                        className="cursor-pointer"
+                      >
+                        Läs Case Study
                       </Button>
                     )}
                   </div>
@@ -225,6 +310,25 @@ export default function ModernPortfolio() {
             </motion.div>
           ))}
         </div>
+
+        {/* Show More Button - Only on Mobile */}
+        {isMobile && !showAllProjects && portfolioItems.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mt-4 mb-12"
+          >
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAllProjects(true)}
+              className="cursor-pointer"
+            >
+              Visa fler projekt ({portfolioItems.length - 3})
+            </Button>
+          </motion.div>
+        )}
 
         {/* Testimonials */}
         {/* <motion.div

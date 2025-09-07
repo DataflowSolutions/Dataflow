@@ -73,61 +73,98 @@ Oavsett om du är en startup som vill göra ditt avtryck eller ett etablerat fö
     featured: false,
   },
   {
-    id: 2,
-    title: "Tillgänglighet i Fokus: Så Förbereder Vi Oss för WCAG 2.1 AA",
-    excerpt:
-      "Webbtillgänglighet är inte längre valfritt – det är lag. Upptäck hur Dataflow Solutions bygger moderna, inkluderande webbplatser i linje med WCAG 2.1 AA och framtidens digitala krav.",
-    content: `# Tillgänglighet i Fokus: Så Förbereder Vi Oss för WCAG 2.1 AA
+  id: 2,
+  title: "WCAG 2.1 AA blir lag 2025 — Är din webbplats redo?",
+  excerpt:
+    "Från juni 2025 måste alla nya webbplatser uppfylla WCAG 2.1 AA enligt EU:s tillgänglighetsdirektiv. Lär dig vad det innebär, vilka krav som ställs och hur Dataflow Solutions kan hjälpa dig att göra din webbplats redo i tid.",
+  content: `# WCAG 2.1 AA blir lag 2025 — Är din webbplats redo?
 
-Från och med 2025 blir **WCAG 2.1 nivå AA** ett lagkrav för fler företag än någonsin tidigare i Sverige och EU. På Dataflow Solutions ser vi detta inte som en begränsning – utan som en möjlighet att skapa webbupplevelser som **fungerar för alla**.
+Från och med **28 juni 2025** träder **EU:s tillgänglighetsdirektiv (European Accessibility Act)** i kraft. Det innebär att **alla nya webbplatser** och digitala tjänster som riktar sig mot konsumenter **måste uppfylla kraven i WCAG 2.1 AA**.  
 
-## Vad är WCAG 2.1 AA?
+På **Dataflow Solutions** hjälper vi företag att redan nu **bygga, uppgradera och optimera** webbplatser som möter kraven — både för att undvika juridiska problem och för att skapa bättre digitala upplevelser för alla användare.
 
-Web Content Accessibility Guidelines (WCAG) är en global standard för att göra webbplatser tillgängliga för människor med olika typer av funktionsvariationer. Nivå 2.1 AA innebär bland annat:
 
-- Färgkontrast som underlättar läsbarhet
-- Navigering utan mus (tangentbordsnavigering)
-- Stöd för skärmläsare
-- Responsiv design för olika enheter och inmatningsmetoder
-- Tydliga formulär, etiketter och felmeddelanden
 
-## Vårt Åtagande
+## Vad innebär WCAG 2.1 AA?
 
-På Dataflow Solutions ligger tillgänglighet **inbyggt i vår utvecklingsprocess** – inte som ett tillägg i slutet. Vi arbetar aktivt för att se till att våra kunders webbplatser redan nu lever upp till kommande krav.
+**Web Content Accessibility Guidelines (WCAG)** är en internationell standard framtagen av W3C för att göra webbplatser **tillgängliga för alla**, inklusive personer med funktionsvariationer.  
 
-### Så Här Säkerställer Vi WCAG-efterlevnad:
+Nivån **WCAG 2.1 AA** ställer bland annat krav på:
 
-- Automatiserade tillgänglighetstester med verktyg som **axe-core** och **Lighthouse**
-- Manuella tester med skärmläsare som **VoiceOver** och **NVDA**
-- Designbeslut med kontrast, läsbarhet och användbarhet i centrum
-- Kodstruktur som följer semantiska principer och ARIA-standarder
-- Regelbundna granskningar inför och efter lansering
+- **Färgkontraster** för bättre läsbarhet  
+- **Tangentbordsnavigering** utan mus  
+- **Stöd för skärmläsare** och alternativa inmatningsmetoder  
+- **Responsiv design** som fungerar på alla enheter  
+- **Tydliga formulär, etiketter och felmeddelanden**  
+- **Strukturerad kod** som följer semantiska HTML- och ARIA-standarder  
 
-## Mer Än Bara Regler – Det Handlar om Människor
 
-Vi tror att **bra design är inkluderande design**. Genom att bygga med tillgänglighet från start når vi fler användare, stärker varumärkets trovärdighet och undviker juridiska risker.
 
-Tillgänglighet förbättrar dessutom den **övergripande användarupplevelsen** för alla – inte bara för personer med funktionsvariationer.
+## Vilka berörs av lagen?
 
-## Redo för Framtidens Webblag?
+Från och med **28 juni 2025** gäller lagen för:
 
-Lagen må träda i kraft 2025, men vi agerar **nu**. Vår filosofi är enkel: bygga webbplatser som inte bara ser bra ut – utan fungerar för **alla användare, i alla situationer**.
+- **Alla nya webbplatser** som lanseras efter detta datum  
+- **Alla befintliga webbplatser** som genomgår **större ombyggnationer eller redesign**  
+- Digitala tjänster, e-handel och bokningssystem som är öppna för allmänheten  
 
-Oavsett om du behöver en tillgänglighetsanalys, vill uppgradera din nuvarande webbplats eller starta något nytt från grunden, så är vi din partner hela vägen.
+Har din webbplats lanserats **före** 2025 och du **inte** planerar en större redesign?  
+Då gäller övergångsregler — men alla **nya projekt** måste följa kraven direkt.
 
-**Vill du vara förberedd inför 2025?** Hör av dig till oss så skapar vi en tillgänglig digital framtid – tillsammans.`,
-    author: {
-      name: "Dataflow Solutions Team",
-      avatar: "/api/placeholder/40/40",
-      role: "Grundare",
-    },
-    publishedAt: "2025-09-03",
-    readTime: "6 min läsning",
-    category: "Tillgänglighet",
-    tags: ["WCAG 2.1", "Tillgänglighet", "UX", "Webblag"],
-    image: "/api/placeholder/800/400",
-    featured: true,
+
+
+## Så här hjälper vi dig att bli WCAG-redo
+
+På **Dataflow Solutions** bygger vi tillgänglighet **från start** — det är en del av vår process, inte något som läggs på i slutet.  
+
+### Våra metoder för WCAG 2.1 AA:
+
+- **Automatiserade tester** med verktyg som **axe-core** och **Lighthouse**  
+- **Manuella tester** med skärmläsare som **NVDA** och **VoiceOver**  
+- **Designbeslut med användaren i fokus** — kontrast, läsbarhet och navigering  
+- **Semantisk HTML och ARIA** för bättre tillgänglighet  
+- **Regelbunden granskning** före och efter lansering  
+
+
+
+## Varför tillgänglighet lönar sig
+
+Att uppfylla WCAG 2.1 AA handlar inte bara om **att följa lagen**. Det handlar om att:
+
+- **Nå fler användare** — över 20% av Sveriges befolkning har någon form av funktionsvariation  
+- **Stärka varumärket** genom att visa socialt ansvar  
+- **Förbättra SEO** — Google prioriterar tillgängliga webbplatser  
+- **Minska risken för juridiska problem** och klagomål  
+
+Tillgängliga webbplatser ger dessutom **bättre användarupplevelse för alla** — inte bara för personer med funktionsvariationer.
+
+
+
+## Börja redan idag — undvik stressen 2025
+
+**28 juni 2025** kommer snabbt, men vi kan hjälpa dig att ligga före.  
+Oavsett om du behöver en **tillgänglighetsanalys**, vill **uppgradera din nuvarande webbplats** eller bygga något helt nytt, är vi din partner hela vägen.
+
+**Vill du vara redo för 2025?**  
+Kontakta oss idag, så skapar vi en **tillgänglig, modern och framtidssäker webbplats** — tillsammans.
+
+Publicerad: 3 september 2025  
+Av: Dataflow Solutions Team  
+`,
+  author: {
+    name: "Dataflow Solutions Team",
+    avatar: "/api/placeholder/40/40",
+    role: "Grundare",
   },
+  publishedAt: "2025-09-03",
+  readTime: "7 min läsning",
+  category: "Tillgänglighet",
+  tags: ["WCAG 2.1", "Tillgänglighet", "SEO", "Webblag", "UX"],
+  image: "/images/blog/wcag-2025.jpg",
+  featured: true,
+}
+
+  
 ];
 
 export const getPostById = (id: number): BlogPost | undefined => {

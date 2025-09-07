@@ -148,11 +148,22 @@ export default function ModernBlog() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="relative h-64 lg:h-full">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                  <div className={`w-full h-full flex items-center justify-center ${
+                    featuredPost.category === "Tillgänglighet" ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20" :
+                    featuredPost.category === "Affärer" ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20" :
+                    "bg-gradient-to-br from-primary/20 to-secondary/20"
+                  }`} role="img" aria-label={`Grafisk representation för utvald artikel: ${featuredPost.title}`}>
                     <div className="text-center">
-                      <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-lg mx-auto mb-4 flex items-center justify-center">
-                        <BookOpen className="w-10 h-10 text-white" />
+                      <div className={`w-20 h-20 rounded-xl mx-auto mb-4 flex items-center justify-center bg-gradient-to-r shadow-lg ${
+                        featuredPost.category === "Tillgänglighet" ? "from-blue-500 to-cyan-500" :
+                        featuredPost.category === "Affärer" ? "from-purple-500 to-violet-500" :
+                        "from-primary to-secondary"
+                      }`}>
+                        <BookOpen className="w-10 h-10 text-white" aria-hidden="true" />
                       </div>
+                      <h3 className="text-white font-bold text-xl md:text-2xl drop-shadow-2xl text-center px-4">
+                        {featuredPost.title}
+                      </h3>
                     </div>
                   </div>
                   <div className="absolute top-4 left-4">
@@ -268,9 +279,22 @@ export default function ModernBlog() {
                 >
                   {/* Image */}
                   <div className="relative h-48">
-                    <div className="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                        <BookOpen className="w-8 h-8 text-white" />
+                    <div className={`w-full h-full flex items-center justify-center ${
+                      post.category === "Tillgänglighet" ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20" :
+                      post.category === "Affärer" ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20" :
+                      "bg-gradient-to-br from-primary/20 to-secondary/20"
+                    }`} role="img" aria-label={`Grafisk representation för artikel: ${post.title}`}>
+                      <div className="text-center">
+                        <div className={`w-16 h-16 rounded-lg mx-auto mb-3 flex items-center justify-center bg-gradient-to-r ${
+                          post.category === "Tillgänglighet" ? "from-blue-500 to-cyan-500" :
+                          post.category === "Affärer" ? "from-purple-500 to-violet-500" :
+                          "from-primary to-secondary"
+                        } shadow-lg`}>
+                          <BookOpen className="w-8 h-8 text-white" aria-hidden="true" />
+                        </div>
+                        <h4 className="text-white font-bold text-lg drop-shadow-lg text-center px-2">
+                          {post.title}
+                        </h4>
                       </div>
                     </div>
                     <div className="absolute top-4 left-4">

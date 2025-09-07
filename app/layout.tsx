@@ -66,8 +66,61 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Structured data for organization
+  const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Dataflow Solutions",
+    "url": "https://dataflowsolutions.se",
+    "logo": "https://dataflowsolutions.se/logo/Tachyon2.png",
+    "description": "Dataflow Solutions utvecklar moderna hemsidor och skalbara SaaS-produkter. Vi hjälper företag från idé till färdig digital lösning.",
+    "foundingDate": "2024",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "SE"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/dataflow-solutions"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": "Swedish"
+    },
+    "knowsAbout": [
+      "Web Development",
+      "SaaS Development",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "UI/UX Design",
+      "Digital Strategy"
+    ]
+  };
+
   return (
-    <html lang="en">
+    <html lang="sv">
+      <head>
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+
+        {/* DNS prefetch for additional performance */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+
+        {/* Structured Data for Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationData),
+          }}
+        />
+      </head>
       <body className="bg-background text-text-primary">
         <ThemeProvider>
           <GoogleAnalytics />

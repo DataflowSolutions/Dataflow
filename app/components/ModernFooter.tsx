@@ -138,46 +138,6 @@ export default function ModernFooter() {
       </div>
 
       <div className="relative z-10">
-        {/* Newsletter Section */}
-        {/* <div className="border-b border-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center max-w-2xl mx-auto"
-            >
-              <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">
-                Håll dig uppdaterad
-              </h3>
-              <p className="text-text-secondary mb-8">
-                Få de senaste insikterna om webbutveckling, tekniktrender och
-                våra projektuppdateringar direkt till din inkorg.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Din e-postadress"
-                  className="flex-1 px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-text-primary"
-                />
-                <Button
-                  variant="gradient"
-                  size="lg"
-                  rightIcon={<ArrowRight className="w-5 h-5" />}
-                >
-                  Prenumerera
-                </Button>
-              </div>
-
-              <p className="text-text-muted text-sm mt-4">
-                Avregistrera dig när som helst. Vi respekterar din integritet.
-              </p>
-            </motion.div>
-          </div>
-        </div> */}
-
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
@@ -213,7 +173,7 @@ export default function ModernFooter() {
                 </div>
                 <div className="flex items-center text-text-secondary">
                   <Phone className="w-5 h-5 mr-3 text-primary" />
-                  <span>+46 70 042 73 62</span>
+                  <span>+46 72 877 53 59</span>
                 </div>
                 {/* <div className="flex items-center text-text-secondary">
                   <MapPin className="w-5 h-5 mr-3 text-primary" />

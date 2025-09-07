@@ -228,22 +228,6 @@ export default function ModernHero() {
                 </div>
               </div>
 
-              {/* Floating Performance Badges */}
-              <motion.div
-                className="absolute -top-2 -right-4 bg-[#0b835b] text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                100% Performance
-              </motion.div>
-
-              <motion.div
-                className="absolute -bottom-4 -left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-              >
-                Lightning Fast
-              </motion.div>
             </Card>
           </motion.div>
         </div>

@@ -23,35 +23,43 @@ const values = [
     icon: Lightbulb,
     title: "Innovation",
     description:
-      "Vi utforskar ständigt nya teknologier och metoder för att leverera banbrytande lösningar som ger våra kunder konkurrensfördelar.",
+      "Vi tänker nytt, testar gränser och använder modern teknik för att skapa lösningar som gör skillnad på riktigt.",
   },
   {
     icon: Users,
-    title: "Partnerskap",
+    title: "Samarbete",
     description:
-      "Vi ser oss som en förlängning av våra kunders team, arbetar nära tillsammans och delar både utmaningar och framgångar.",
+      "Vi jobbar nära våra kunder, förstår deras behov och bygger långsiktiga relationer som ger resultat.",
   },
   {
     icon: Award,
-    title: "Excellens",
+    title: "Kvalitet",
     description:
-      "Kvalitet är aldrig en slump. Vi strävar efter perfektion i varje detalj och levererar alltid mer än vad som förväntas.",
+      "Vi kompromissar aldrig med detaljerna. Varje lösning ska vara snabb, stabil och genomtänkt från start till mål.",
   },
   {
     icon: Heart,
-    title: "Passion",
+    title: "Driv",
     description:
-      "Vi brinner för att skapa digitala upplevelser som inte bara fungerar perfekt, utan som också inspirerar och engagerar användare.",
+      "Vi älskar det vi gör och det märks. Vår passion för utveckling och design driver oss att alltid leverera vårt bästa.",
   },
 ];
 
 const team = [
   {
     name: "Albin Hasanaj",
-    role: "Delägare / Developer",
-    bio: "tel: +46 72 877 53 59",
-    image: "/api/placeholder/300/300",
-    skills: ["React", "Node.js", "AWS", "TypeScript"],
+    role: "VD / Utvecklare",
+    bio: "Specialiserad på avancerad webbutveckling, AI-drivna system och skalbara SaaS-plattformar. Leder den tekniska utvecklingen och ansvarar för strategi och arkitektur.",
+    image: "/images/team/albin.png",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "AI/ML",
+      "Python",
+      "Docker",
+      "C++"
+    ],
     social: {
       linkedin: "https://www.linkedin.com/in/albin-hasanaj/",
       github: "https://github.com/albinhasanaj",
@@ -60,10 +68,16 @@ const team = [
   },
   {
     name: "Oliver Söderlund Granzer",
-    role: "Delägare / Developer",
-    bio: "tel: +46 70 042 73 62",
-    image: "/api/placeholder/300/300",
-    skills: ["React", "Node.js", "TypeScript", "Next.js", "Python"],
+    role: "Delägare / Utvecklare",
+    bio: "Fokuserar på frontend utveckling med högkvalitativa lösningar för webben. Driver implementation av komplexa funktioner och integrationer.",
+    image: "/images/team/oliver.png",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "REST APIs",
+    ],
     social: {
       linkedin: "https://www.linkedin.com/in/oliver-soderlund-granzer/",
       github: "https://github.com/oliversoder06",
@@ -72,16 +86,17 @@ const team = [
   },
   {
     name: "Melvin Sundberg",
-    role: "Marknadsförare",
-    bio: "tel: +46 79 347 10 09",
-    image: "/api/placeholder/300/300",
-    skills: ["Marknadsföring", "Content Creation"],
+    role: "CMO / Growth",
+    bio: "Ansvarar för marknadsföring, kundrelationer och strategisk tillväxt. Driver outreach, branding och leadgenerering för att expandera företagets räckvidd.",
+    image: "/images/team/melvin.png",
+    skills: ["Marknadsföring", "Growth Strategy", "Content Creation", "Lead Generation"],
     social: {
       linkedin: "https://www.linkedin.com/in/melvin-sundberg-41876b2ab/",
       email: "melvin@dataflowsolutions.se",
     },
   },
 ];
+
 
 const stats = [
   { number: "10+", label: "Nöjda kunder" },

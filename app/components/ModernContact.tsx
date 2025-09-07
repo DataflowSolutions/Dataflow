@@ -31,7 +31,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telefon",
-    content: "+46 70 042 73 62",
+    content: "+46 72 877 53 59",
     description: "Ring oss alla dagar i veckan under bestämda tider.",
   },
   //   {
