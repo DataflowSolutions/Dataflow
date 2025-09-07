@@ -153,7 +153,58 @@ export default function TermsPage() {
           </Card>
 
           <Card variant="elevated" className="p-8">
-            <h2 className="text-2xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl font-bold text-text-primary mb-4 flex items-center">
+              <FileText className="w-6 h-6 mr-3 text-primary" />
+              7. Cookies och webbanvändning
+            </h2>
+            <div className="text-text-secondary space-y-4">
+              <p>
+                Genom att använda vår webbplats accepterar du vår användning av
+                cookies enligt vår cookie-policy och integritetspolicy.
+              </p>
+
+              <h3 className="text-lg font-semibold text-text-primary mt-6 mb-3">
+                Cookie-samtycke
+              </h3>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>
+                  Du har rätt att acceptera eller avvisa icke-nödvändiga cookies
+                </li>
+                <li>
+                  Nödvändiga cookies krävs för webbplatsens grundläggande
+                  funktionalitet
+                </li>
+                <li>Analytics-cookies hjälper oss att förbättra webbplatsen</li>
+                <li>Du kan ändra dina cookie-inställningar när som helst</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-text-primary mt-6 mb-3">
+                Tredjepartstjänster
+              </h3>
+              <p>
+                Vi använder Google Analytics för att analysera webbplatstrafik.
+                Googles användarvillkor och integritetspolicy gäller för denna
+                tjänst.
+              </p>
+
+              <h3 className="text-lg font-semibold text-text-primary mt-6 mb-3">
+                Användningsdata
+              </h3>
+              <p>
+                Vi samlar in anonymiserad data om webbplatsanvändning för att:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Förbättra användarupplevelsen</li>
+                <li>Förstå hur besökare interagerar med webbplatsen</li>
+                <li>Optimera webbplatsens prestanda</li>
+                <li>Utveckla bättre tjänster</li>
+              </ul>
+            </div>
+          </Card>
+
+          <Card variant="elevated" className="p-8">
+            <h2 className="text-2xl font-bold text-text-primary mb-4 flex items-center">
+              <FileText className="w-6 h-6 mr-3 text-primary" />
               8. Ändringar av villkor
             </h2>
             <div className="text-text-secondary space-y-4">
@@ -166,7 +217,8 @@ export default function TermsPage() {
           </Card>
 
           <Card variant="elevated" className="p-8">
-            <h2 className="text-2xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl font-bold text-text-primary mb-4 flex items-center">
+              <FileText className="w-6 h-6 mr-3 text-primary" />
               9. Tillämplig lag
             </h2>
             <div className="text-text-secondary space-y-4">
@@ -178,7 +230,8 @@ export default function TermsPage() {
           </Card>
 
           <Card variant="elevated" className="p-8">
-            <h2 className="text-2xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl font-bold text-text-primary mb-4 flex items-center">
+              <FileText className="w-6 h-6 mr-3 text-primary" />
               10. Kontakt
             </h2>
             <div className="text-text-secondary space-y-4">

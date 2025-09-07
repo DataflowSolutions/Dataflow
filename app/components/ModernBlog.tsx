@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { event } from "@/lib/analytics";
 import {
   Calendar,
   Clock,
@@ -217,6 +218,15 @@ export default function ModernBlog() {
                     <Link
                       aria-label={`Läs mer om ${featuredPost.title}`}
                       href={`/blog/${featuredPost.id}`}
+                      onClick={() => {
+                        // Track featured blog click
+                        event({
+                          action: "blog_click",
+                          category: "Blog",
+                          label: `Featured: ${featuredPost.title}`,
+                          value: 1,
+                        });
+                      }}
                     >
                       <Button
                         variant="primary"
@@ -317,6 +327,15 @@ export default function ModernBlog() {
                       <Link
                         aria-label={`Läs mer om ${post.title}`}
                         href={`/blog/${post.id}`}
+                        onClick={() => {
+                          // Track regular blog click
+                          event({
+                            action: "blog_click",
+                            category: "Blog",
+                            label: `Regular: ${post.title}`,
+                            value: 1,
+                          });
+                        }}
                       >
                         <Button
                           variant="ghost"

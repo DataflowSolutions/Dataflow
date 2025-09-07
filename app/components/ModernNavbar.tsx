@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "@/app/providers/ThemeProvider";
 import { useRouter, usePathname } from "next/navigation";
+import { event } from "@/lib/analytics";
 import Button from "./ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -67,6 +68,14 @@ export default function Navbar() {
   ) => {
     e.preventDefault();
     e.stopPropagation();
+
+    // Track navigation click
+    event({
+      action: "navigation_click",
+      category: "Navigation",
+      label: href,
+      value: 1,
+    });
 
     // Close mobile menu first
     setIsMobileMenuOpen(false);
@@ -217,6 +226,13 @@ export default function Navbar() {
                   variant="gradient"
                   size="md"
                   onClick={() => {
+                    // Track navbar CTA click
+                    event({
+                      action: "cta_click",
+                      category: "Navbar",
+                      label: "Get Quote",
+                      value: 1,
+                    });
                     const mockEvent = {
                       preventDefault: () => {},
                       stopPropagation: () => {},
@@ -275,6 +291,13 @@ export default function Navbar() {
                     variant="gradient"
                     size="lg"
                     onClick={() => {
+                      // Track mobile navbar CTA click
+                      event({
+                        action: "cta_click",
+                        category: "Mobile Navbar",
+                        label: "Get Quote",
+                        value: 1,
+                      });
                       const mockEvent = {
                         preventDefault: () => {},
                         stopPropagation: () => {},

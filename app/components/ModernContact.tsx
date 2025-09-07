@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import { event } from "@/lib/analytics";
 import {
   Mail,
   Phone,
@@ -114,6 +115,14 @@ export default function ModernContact() {
 
       setSubmitStatus("success");
       toast.success("Ditt meddelande har skickats framgångsrikt!");
+
+      // Track form submission in Google Analytics
+      event({
+        action: "form_submit",
+        category: "Contact",
+        label: "Contact Form",
+        value: 1,
+      });
 
       // Reset success status after 3 seconds
       setTimeout(() => {

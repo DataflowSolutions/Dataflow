@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Star, Users, Award, TrendingUp } from "lucide-react";
 import { useInView } from "react-intersection-observer";
+import { event } from "@/lib/analytics";
 import Button from "./ui/Button";
 import Card from "./ui/Card";
 
@@ -114,11 +115,18 @@ export default function ModernHero() {
               <Button
                 variant="gradient"
                 size="xl"
-                onClick={() =>
+                onClick={() => {
+                  // Track CTA click
+                  event({
+                    action: "cta_click",
+                    category: "Hero",
+                    label: "Start Project",
+                    value: 1,
+                  });
                   document
                     .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="group cursor-pointer"
               >
                 Starta ditt projekt
@@ -135,11 +143,18 @@ export default function ModernHero() {
                 variant="outline"
                 size="xl"
                 leftIcon={<Play className="w-5 h-5" />}
-                onClick={() =>
+                onClick={() => {
+                  // Track case studies click
+                  event({
+                    action: "cta_click",
+                    category: "Hero",
+                    label: "View Case Studies",
+                    value: 1,
+                  });
                   document
                     .getElementById("portfolio")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="cursor-pointer"
               >
                 Se våra case studies

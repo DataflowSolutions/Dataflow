@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
+import { event } from "@/lib/analytics";
 import {
   Mail,
   Phone,
@@ -43,6 +44,7 @@ const footerLinks = {
   legal: [
     { name: "Integritetspolicy", href: "/privacy" },
     { name: "Användarvillkor", href: "/terms" },
+    { name: "Cookie-inställningar", href: "#cookie-settings" },
     // { name: "Cookie Policy", href: "/cookies" },
     // { name: "GDPR", href: "/gdpr" },
     // { name: "Säkerhet", href: "/security" },
@@ -85,6 +87,14 @@ export default function ModernFooter() {
   // Navigation handler for footer links
   const handleNavigation = (href: string, e: React.MouseEvent) => {
     e.preventDefault();
+
+    // Handle cookie settings
+    if (href === "#cookie-settings") {
+      // Trigger cookie consent banner to show settings
+      localStorage.removeItem("cookie-consent");
+      window.location.reload();
+      return;
+    }
 
     // If it's the blog link or other pages, navigate directly
     if (href === "/blog" || (href.startsWith("/") && !href.startsWith("/#"))) {
@@ -337,7 +347,16 @@ export default function ModernFooter() {
                 {socialLinks.map((social) => (
                   <button
                     key={social.name}
-                    onClick={() => window.open(social.href, "_blank")}
+                    onClick={() => {
+                      // Track social media click
+                      event({
+                        action: "social_click",
+                        category: "Footer",
+                        label: social.name,
+                        value: 1,
+                      });
+                      window.open(social.href, "_blank");
+                    }}
                     className={`w-10 h-10 bg-accent rounded-lg flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110 ${social.color}`}
                     aria-label={social.name}
                   >

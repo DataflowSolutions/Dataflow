@@ -1,12 +1,12 @@
 {
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/robots.txt/route": "app/robots.txt/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/terms/page": "app/terms/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/blog/[id]/page": "app/blog/[id]/page.js",
   "/blog/page": "app/blog/page.js",
   "/page": "app/page.js",
   "/privacy/page": "app/privacy/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/blog/[id]/page": "app/blog/[id]/page.js"
+  "/terms/page": "app/terms/page.js"
 }

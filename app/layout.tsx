@@ -6,6 +6,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import ModernNavbar from "./components/ModernNavbar";
 import ModernFooter from "./components/ModernFooter";
+import CookieConsent from "./components/CookieConsent";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: "Dataflow Solutions – Modern webbutveckling och SaaS-lösningar",
@@ -68,6 +70,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-background text-text-primary">
         <ThemeProvider>
+          <GoogleAnalytics />
           <Toaster
             position="top-right"
             toastOptions={{
@@ -81,6 +84,7 @@ export default function RootLayout({
           <ModernNavbar />
           <main>{children}</main>
           <ModernFooter />
+          <CookieConsent />
         </ThemeProvider>
       </body>
       <SpeedInsights />
