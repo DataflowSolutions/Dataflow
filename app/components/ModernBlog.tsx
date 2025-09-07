@@ -177,9 +177,9 @@ export default function ModernBlog() {
                     </div>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-4 leading-tight">
+                  <h2 className="text-2xl md:text-2xl font-bold text-text-primary mb-4 leading-tight">
                     {featuredPost.title}
-                  </h3>
+                  </h2>
 
                   <p className="text-text-secondary mb-6 leading-relaxed">
                     {featuredPost.excerpt}
@@ -214,7 +214,10 @@ export default function ModernBlog() {
                       </div>
                     </div>
 
-                    <Link href={`/blog/${featuredPost.id}`}>
+                    <Link
+                      aria-label={`Läs mer om ${featuredPost.title}`}
+                      href={`/blog/${featuredPost.id}`}
+                    >
                       <Button
                         variant="primary"
                         size="md"
@@ -222,6 +225,9 @@ export default function ModernBlog() {
                         className="cursor-pointer"
                       >
                         Läs mer
+                        <span className="sr-only">
+                          Read more about {featuredPost.title}
+                        </span>
                       </Button>
                     </Link>
                   </div>
@@ -275,9 +281,9 @@ export default function ModernBlog() {
                       </div>
                     </div>
 
-                    <h4 className="text-lg font-bold text-text-primary mb-3 leading-tight">
+                    <h3 className="text-lg font-bold text-text-primary mb-3 leading-tight">
                       {post.title}
-                    </h4>
+                    </h3>
 
                     <p className="text-text-secondary text-sm mb-4 leading-relaxed">
                       {post.excerpt}
@@ -308,7 +314,10 @@ export default function ModernBlog() {
                         </div>
                       </div>
 
-                      <Link href={`/blog/${post.id}`}>
+                      <Link
+                        aria-label={`Läs mer om ${post.title}`}
+                        href={`/blog/${post.id}`}
+                      >
                         <Button
                           variant="ghost"
                           size="sm"
