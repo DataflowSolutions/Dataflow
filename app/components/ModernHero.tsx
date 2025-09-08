@@ -65,16 +65,16 @@ export default function ModernHero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
             {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6 }}
               className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium mb-6"
             >
               <Star className="w-4 h-4 mr-2 fill-current" />
@@ -83,9 +83,9 @@ export default function ModernHero() {
 
             {/* Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
             >
               <span className="text-text-primary">Bygg framtidens</span>
@@ -95,9 +95,9 @@ export default function ModernHero() {
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6 }}
               className="text-lg md:text-xl text-text-secondary max-w-2xl mb-8"
             >
               Vi skapar moderna webbplatser och SaaS-produkter som driver
@@ -107,9 +107,9 @@ export default function ModernHero() {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1 }}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
               <Button
@@ -166,23 +166,23 @@ export default function ModernHero() {
 
           {/* Right Column - Visual */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6 }}
             className="relative flex flex-col gap-6"
           >
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1.2 }}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6 }}
               className="grid grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
+                  initial={{ opacity: 0 }}
+                  animate={inView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center lg:text-left text-nowrap"
                 >
                   <div className="flex items-center justify-center lg:justify-start mb-2">
@@ -239,7 +239,7 @@ export default function ModernHero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1, delay: 2 }}
+        transition={{ duration: 1 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
       >
         <motion.div

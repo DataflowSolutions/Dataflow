@@ -146,7 +146,7 @@ export default function ModernBlog() {
             <Card variant="elevated" className="overflow-hidden hover-glow">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image */}
-                <div className="relative h-64 lg:h-full">
+                <div className="relative h-48 sm:h-56 md:h-64 lg:h-full">
                   <div
                     className={`w-full h-full flex items-center justify-center ${
                       featuredPost.category === "Tillgänglighet"
@@ -158,9 +158,9 @@ export default function ModernBlog() {
                     role="img"
                     aria-label={`Grafisk representation för utvald artikel: ${featuredPost.title}`}
                   >
-                    <div className="text-center">
+                    <div className="text-center px-4">
                       <div
-                        className={`w-20 h-20 rounded-xl mx-auto mb-4 flex items-center justify-center bg-gradient-to-r shadow-lg ${
+                        className={`w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-xl mx-auto mb-3 sm:mb-4 flex items-center justify-center bg-gradient-to-r shadow-lg ${
                           featuredPost.category === "Tillgänglighet"
                             ? "from-blue-500 to-cyan-500"
                             : featuredPost.category === "Affärer"
@@ -169,64 +169,66 @@ export default function ModernBlog() {
                         }`}
                       >
                         <BookOpen
-                          className="w-10 h-10 text-white"
+                          className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-white"
                           aria-hidden="true"
                         />
                       </div>
-                      <h3 className="text-white font-bold text-xl md:text-2xl drop-shadow-2xl text-center px-4">
+                      <h3 className="text-white font-bold text-lg sm:text-xl md:text-2xl drop-shadow-2xl text-center">
                         {featuredPost.title}
                       </h3>
                     </div>
                   </div>
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
                     <Badge text="Utvald artikel" variant="gradient" size="sm" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-center space-x-4 mb-4">
+                <div className="p-4 sm:p-6 lg:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0 mb-3 sm:mb-4">
                     <Badge
                       text={featuredPost.category}
                       variant="primary"
                       size="sm"
                     />
-                    <div className="flex items-center text-text-muted text-sm">
-                      <Calendar className="w-4 h-4 mr-1" />
-                      {formatDate(featuredPost.publishedAt)}
-                    </div>
-                    <div className="flex items-center text-text-muted text-sm">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {featuredPost.readTime}
+                    <div className="flex items-center space-x-3 sm:space-x-4 text-text-muted text-xs sm:text-sm">
+                      <div className="flex items-center">
+                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                        {formatDate(featuredPost.publishedAt)}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                        {featuredPost.readTime}
+                      </div>
                     </div>
                   </div>
 
-                  <h2 className="text-2xl md:text-2xl font-bold text-text-primary mb-4 leading-tight">
+                  <h2 className="text-xl sm:text-2xl font-bold text-text-primary mb-3 sm:mb-4 leading-tight">
                     {featuredPost.title}
                   </h2>
 
-                  <p className="text-text-secondary mb-6 leading-relaxed">
+                  <p className="text-text-secondary mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                     {featuredPost.excerpt}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                     {featuredPost.tags.map((tag: string) => (
                       <span
                         key={tag}
                         className="flex items-center px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md"
                       >
-                        <Tag className="w-3 h-3 mr-1" />
+                        <Tag className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-1" />
                         {tag}
                       </span>
                     ))}
                   </div>
 
                   {/* Author & CTA */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-3">
-                        <User className="w-5 h-5 text-white" />
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                        <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </div>
                       <div>
                         <div className="font-medium text-text-primary text-sm">
@@ -250,12 +252,13 @@ export default function ModernBlog() {
                           value: 1,
                         });
                       }}
+                      className="self-start sm:self-auto"
                     >
                       <Button
                         variant="primary"
                         size="md"
                         rightIcon={<ArrowRight className="w-4 h-4" />}
-                        className="cursor-pointer"
+                        className="cursor-pointer w-full sm:w-auto"
                       >
                         Läs mer
                         <span className="sr-only">
