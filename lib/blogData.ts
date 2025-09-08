@@ -74,16 +74,16 @@ Oavsett om du är en startup som vill göra ditt avtryck eller ett etablerat fö
     readTime: "7 min läsning",
     category: "Affärer",
     tags: ["Webbutveckling", "Startups", "Innovation"],
-    image: "/api/placeholder/800/400",
+    image: "/images/blog/backgroundBlog1.png",
     featured: false,
   },
   {
-  id: 2,
-  slug: "wcag-2-1-aa-blir-lag-2025-ar-din-webbplats-redo",
-  title: "WCAG 2.1 AA blir lag 2025 — Är din webbplats redo?",
-  excerpt:
-    "Från 28 juni 2025 krävs WCAG 2.1 AA för nya webbplatser och digitala tjänster. Här är vad som gäller och hur vi kan hjälpa dig bli redo i tid.",
-  content: `# WCAG 2.1 AA blir lag 2025 — Är din webbplats redo?
+    id: 2,
+    slug: "wcag-2-1-aa-blir-lag-2025-ar-din-webbplats-redo",
+    title: "WCAG 2.1 AA blir lag 2025 — Är din webbplats redo?",
+    excerpt:
+      "Från 28 juni 2025 krävs WCAG 2.1 AA för nya webbplatser och digitala tjänster. Här är vad som gäller och hur vi kan hjälpa dig bli redo i tid.",
+    content: `# WCAG 2.1 AA blir lag 2025 — Är din webbplats redo?
 
 Från och med **28 juni 2025** träder **EU:s tillgänglighetsdirektiv (European Accessibility Act)** i kraft. Det innebär att **alla nya webbplatser** och digitala tjänster som riktar sig mot konsumenter **måste uppfylla kraven i WCAG 2.1 AA**.
 
@@ -146,20 +146,18 @@ Behöver du en **tillgänglighetsanalys**, vill **uppgradera** din nuvarande web
 
 *Publicerad: 3 september 2025*  
 *Av: Dataflow Solutions Team*`,
-  author: {
-    name: "Dataflow Solutions Team",
-    avatar: "/api/placeholder/40/40",
-    role: "Grundare",
+    author: {
+      name: "Dataflow Solutions Team",
+      avatar: "/api/placeholder/40/40",
+      role: "Grundare",
+    },
+    publishedAt: "2025-09-03",
+    readTime: "7 min läsning",
+    category: "Tillgänglighet",
+    tags: ["WCAG 2.1", "Tillgänglighet", "SEO", "Webblag", "UX"],
+    image: "/images/blog/backgroundBlog2.png",
+    featured: true,
   },
-  publishedAt: "2025-09-03",
-  readTime: "7 min läsning",
-  category: "Tillgänglighet",
-  tags: ["WCAG 2.1", "Tillgänglighet", "SEO", "Webblag", "UX"],
-  image: "/images/blog/wcag-2025.jpg",
-  featured: true,
-}
-
-  
 ];
 
 export const getPostBySlug = (slug: string): BlogPost | undefined => {

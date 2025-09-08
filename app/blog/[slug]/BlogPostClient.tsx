@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  Calendar,
-  Clock,
-  User,
-  ArrowLeft,
-} from "lucide-react";
+import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
@@ -105,27 +100,54 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
           {/* Featured Image */}
           <Card variant="elevated" className="overflow-hidden mb-8">
             <div className="relative h-64 md:h-96">
-              <div className={`w-full h-full flex items-center justify-center ${
-                post.category === "Tillgänglighet" ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20" :
-                post.category === "Affärer" ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20" :
-                "bg-gradient-to-br from-primary/20 to-secondary/20"
-              }`} role="img" aria-label={`Grafisk representation för artikeln: ${post.title}`}>
-                <div className="text-center px-6">
-                  <h3 className="text-white font-bold text-2xl md:text-3xl drop-shadow-2xl text-center">
-                    {post.title}
-                  </h3>
-                  <p className="text-white/80 text-sm md:text-base mt-2 opacity-90">
-                    {post.category} • {post.readTime} • Av {post.author.name}
-                  </p>
+              {post.image && post.image !== "/api/placeholder/600/400" ? (
+                <div
+                  className="w-full h-full bg-cover bg-center relative"
+                  style={{ backgroundImage: `url(${post.image})` }}
+                  role="img"
+                  aria-label={`Bakgrundsbild för artikeln: ${post.title}`}
+                >
+                  <div className="absolute inset-0 bg-black/50 backdrop-blur-xs" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <h3 className="text-white font-bold text-2xl md:text-3xl drop-shadow-2xl">
+                      {post.title}
+                    </h3>
+                    <p className="text-white/80 text-sm md:text-base mt-2 opacity-90">
+                      {post.category} • {post.readTime} • Av {post.author.name}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div
+                  className={`w-full h-full flex items-center justify-center ${
+                    post.category === "Tillgänglighet"
+                      ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20"
+                      : post.category === "Affärer"
+                      ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20"
+                      : "bg-gradient-to-br from-primary/20 to-secondary/20"
+                  }`}
+                  role="img"
+                  aria-label={`Grafisk representation för artikeln: ${post.title}`}
+                >
+                  <div className="text-center px-6">
+                    <h3 className="text-white font-bold text-2xl md:text-3xl drop-shadow-2xl text-center">
+                      {post.title}
+                    </h3>
+                    <p className="text-white/80 text-sm md:text-base mt-2 opacity-90">
+                      {post.category} • {post.readTime} • Av {post.author.name}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </Card>
 
           {/* Article Content */}
           <div
             className="[&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>ul]:list-disc [&>ul]:pl-6 [&>ol]:list-decimal [&>ol]:pl-6 [&>code]:bg-muted [&>code]:px-1 [&>pre]:bg-muted [&>pre]:p-4 [&>pre]:rounded-lg prose prose-lg max-w-none text-text-primary space-y-6"
-            dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content, post.title) }}
+            dangerouslySetInnerHTML={{
+              __html: renderMarkdown(post.content, post.title),
+            }}
           />
 
           {/* Share Section */}

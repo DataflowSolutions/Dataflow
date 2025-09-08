@@ -47,7 +47,6 @@ import Link from "next/link";
 //   },
 // ];
 
-
 export default function ModernBlog() {
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -150,37 +149,54 @@ export default function ModernBlog() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="relative h-48 sm:h-56 md:h-64 lg:h-full">
-                  <div
-                    className={`w-full h-full flex items-center justify-center ${
-                      featuredPost.category === "Tillgänglighet"
-                        ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20"
-                        : featuredPost.category === "Affärer"
-                        ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20"
-                        : "bg-gradient-to-br from-primary/20 to-secondary/20"
-                    }`}
-                    role="img"
-                    aria-label={`Grafisk representation för utvald artikel: ${featuredPost.title}`}
-                  >
-                    <div className="text-center px-4">
-                      <div
-                        className={`w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-xl mx-auto mb-3 sm:mb-4 flex items-center justify-center bg-gradient-to-r shadow-lg ${
-                          featuredPost.category === "Tillgänglighet"
-                            ? "from-blue-500 to-cyan-500"
-                            : featuredPost.category === "Affärer"
-                            ? "from-purple-500 to-violet-500"
-                            : "from-primary to-secondary"
-                        }`}
-                      >
-                        <BookOpen
-                          className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-white"
-                          aria-hidden="true"
-                        />
+                  {featuredPost.image &&
+                  featuredPost.image !== "/api/placeholder/600/400" ? (
+                    <div
+                      className="w-full h-full bg-cover bg-center relative"
+                      style={{ backgroundImage: `url(${featuredPost.image})` }}
+                      role="img"
+                      aria-label={`Bakgrundsbild för artikel: ${featuredPost.title}`}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h3 className="text-white font-bold text-lg sm:text-xl md:text-2xl drop-shadow-2xl">
+                          {featuredPost.title}
+                        </h3>
                       </div>
-                      <h3 className="text-white font-bold text-lg sm:text-xl md:text-2xl drop-shadow-2xl text-center">
-                        {featuredPost.title}
-                      </h3>
                     </div>
-                  </div>
+                  ) : (
+                    <div
+                      className={`w-full h-full flex items-center justify-center ${
+                        featuredPost.category === "Tillgänglighet"
+                          ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20"
+                          : featuredPost.category === "Affärer"
+                          ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20"
+                          : "bg-gradient-to-br from-primary/20 to-secondary/20"
+                      }`}
+                      role="img"
+                      aria-label={`Grafisk representation för utvald artikel: ${featuredPost.title}`}
+                    >
+                      <div className="text-center px-4">
+                        <div
+                          className={`w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-xl mx-auto mb-3 sm:mb-4 flex items-center justify-center bg-gradient-to-r shadow-lg ${
+                            featuredPost.category === "Tillgänglighet"
+                              ? "from-blue-500 to-cyan-500"
+                              : featuredPost.category === "Affärer"
+                              ? "from-purple-500 to-violet-500"
+                              : "from-primary to-secondary"
+                          }`}
+                        >
+                          <BookOpen
+                            className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-white"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <h3 className="text-white font-bold text-lg sm:text-xl md:text-2xl drop-shadow-2xl text-center">
+                          {featuredPost.title}
+                        </h3>
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
                     <Badge text="Utvald artikel" variant="gradient" size="sm" />
                   </div>
@@ -299,74 +315,103 @@ export default function ModernBlog() {
                 >
                   {/* Image */}
                   <div className="relative h-48">
-                    <div className={`w-full h-full flex items-center justify-center ${
-                      post.category === "Tillgänglighet" ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20" :
-                      post.category === "Affärer" ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20" :
-                      "bg-gradient-to-br from-primary/20 to-secondary/20"
-                    }`} role="img" aria-label={`Grafisk representation för artikel: ${post.title}`}>
-                      <div className="text-center">
-                        <div className={`w-16 h-16 rounded-lg mx-auto mb-3 flex items-center justify-center bg-gradient-to-r ${
-                          post.category === "Tillgänglighet" ? "from-blue-500 to-cyan-500" :
-                          post.category === "Affärer" ? "from-purple-500 to-violet-500" :
-                          "from-primary to-secondary"
-                        } shadow-lg`}>
-                          <BookOpen className="w-8 h-8 text-white" aria-hidden="true" />
+                    {post.image && post.image !== "/api/placeholder/600/400" ? (
+                      <div
+                        className="w-full h-full bg-cover bg-center relative"
+                        style={{ backgroundImage: `url(${post.image})` }}
+                        role="img"
+                        aria-label={`Bakgrundsbild för artikel: ${post.title}`}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <h4 className="text-white font-bold text-lg drop-shadow-lg">
+                            {post.title}
+                          </h4>
                         </div>
-                        <h4 className="text-white font-bold text-lg drop-shadow-lg text-center px-2">
-                          {post.title}
-                        </h4>
                       </div>
-                    </div>
+                    ) : (
+                      <div
+                        className={`w-full h-full flex items-center justify-center ${
+                          post.category === "Tillgänglighet"
+                            ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20"
+                            : post.category === "Affärer"
+                            ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20"
+                            : "bg-gradient-to-br from-primary/20 to-secondary/20"
+                        }`}
+                        role="img"
+                        aria-label={`Grafisk representation för artikel: ${post.title}`}
+                      >
+                        <div className="text-center">
+                          <div
+                            className={`w-16 h-16 rounded-lg mx-auto mb-3 flex items-center justify-center bg-gradient-to-r ${
+                              post.category === "Tillgänglighet"
+                                ? "from-blue-500 to-cyan-500"
+                                : post.category === "Affärer"
+                                ? "from-purple-500 to-violet-500"
+                                : "from-primary to-secondary"
+                            } shadow-lg`}
+                          >
+                            <BookOpen
+                              className="w-8 h-8 text-white"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <h4 className="text-white font-bold text-lg drop-shadow-lg text-center px-2">
+                            {post.title}
+                          </h4>
+                        </div>
+                      </div>
+                    )}
                     <div className="absolute top-4 left-4">
                       <Badge text={post.category} variant="primary" size="sm" />
                     </div>
                   </div>
 
-                    {/* Content */}
-                    <div className="p-6 sm:p-8">
-                      <div className="flex items-center space-x-4 mb-4 text-text-muted text-sm">
-                        <div className="flex items-center">
-                          <Calendar className="w-4 h-4 mr-2" />
-                          {formatDate(post.publishedAt)}
+                  {/* Content */}
+                  <div className="p-6 sm:p-8">
+                    <div className="flex items-center space-x-4 mb-4 text-text-muted text-sm">
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        {formatDate(post.publishedAt)}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="w-4 h-4 mr-2" />
+                        {post.readTime}
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-text-secondary text-sm sm:text-base mb-6 leading-relaxed">
+                      {post.excerpt}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {post.tags.slice(0, 3).map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Author & CTA */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-3">
+                          <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                         </div>
-                        <div className="flex items-center">
-                          <Clock className="w-4 h-4 mr-2" />
-                          {post.readTime}
+                        <div>
+                          <div className="font-medium text-text-primary text-sm">
+                            {post.author.name}
+                          </div>
                         </div>
                       </div>
-
-                      <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                        {post.title}
-                      </h3>
-
-                      <p className="text-text-secondary text-sm sm:text-base mb-6 leading-relaxed">
-                        {post.excerpt}
-                      </p>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {post.tags.slice(0, 3).map((tag: string) => (
-                          <span
-                            key={tag}
-                            className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Author & CTA */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-3">
-                            <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                          </div>
-                          <div>
-                            <div className="font-medium text-text-primary text-sm">
-                              {post.author.name}
-                            </div>
-                          </div>
-                        </div>
 
                       <Link
                         aria-label={`Läs mer om ${post.title}`}
