@@ -88,7 +88,7 @@ export default function BlogPage() {
         }}
       />
       <div className="min-h-screen pt-20">
-        <ModernBlog showAllPosts={true} />
+        <ModernBlog />
       </div>
     </>
   );

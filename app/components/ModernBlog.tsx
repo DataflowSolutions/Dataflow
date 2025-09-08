@@ -47,11 +47,8 @@ import Link from "next/link";
 //   },
 // ];
 
-interface ModernBlogProps {
-  showAllPosts?: boolean;
-}
 
-export default function ModernBlog({ showAllPosts = false }: ModernBlogProps) {
+export default function ModernBlog() {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
