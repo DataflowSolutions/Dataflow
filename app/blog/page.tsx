@@ -40,26 +40,27 @@ export default function BlogPage() {
   const blogStructuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Dataflow Solutions Blogg",
-    "description": "Expertartiklar om modern webbutveckling, SaaS-utveckling och digital strategi",
-    "url": "https://dataflowsolutions.se/blog",
-    "publisher": {
+    name: "Dataflow Solutions Blogg",
+    description:
+      "Expertartiklar om modern webbutveckling, SaaS-utveckling och digital strategi",
+    url: "https://dataflowsolutions.se/blog",
+    publisher: {
       "@type": "Organization",
-      "name": "Dataflow Solutions",
-      "logo": {
+      name: "Dataflow Solutions",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://dataflowsolutions.se/logo/Tachyon2.png"
-      }
+        url: "https://dataflowsolutions.se/logo/Tachyon2.png",
+      },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://dataflowsolutions.se/blog"
+      "@id": "https://dataflowsolutions.se/blog",
     },
-    "inLanguage": "sv-SE",
-    "copyrightHolder": {
+    inLanguage: "sv-SE",
+    copyrightHolder: {
       "@type": "Organization",
-      "name": "Dataflow Solutions"
-    }
+      name: "Dataflow Solutions",
+    },
   };
   const itemList = {
     "@context": "https://schema.org",
@@ -87,7 +88,7 @@ export default function BlogPage() {
         }}
       />
       <div className="min-h-screen pt-20">
-        <ModernBlog />
+        <ModernBlog showAllPosts={true} />
       </div>
     </>
   );

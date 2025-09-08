@@ -61,9 +61,7 @@ export default function ModernContact() {
     name: "",
     email: "",
     company: "",
-    budget: "",
-    timeline: "",
-    projectType: "",
+    phone: "",
     message: "",
   });
 
@@ -90,9 +88,7 @@ export default function ModernContact() {
       title: formData.email,
       message: formData.message,
       company: formData.company,
-      budget: formData.budget,
-      timeline: formData.timeline,
-      projectType: formData.projectType,
+      phone: formData.phone,
     };
 
     try {
@@ -107,9 +103,7 @@ export default function ModernContact() {
         name: "",
         email: "",
         company: "",
-        budget: "",
-        timeline: "",
-        projectType: "",
+        phone: "",
         message: "",
       });
 
@@ -173,14 +167,14 @@ export default function ModernContact() {
           <Badge text="Kontakt" variant="primary" size="lg" className="mb-6" />
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            Låt oss skapa något
-            <span className="gradient-text"> extraordinärt tillsammans</span>
+            Låt oss prata om
+            <span className="gradient-text"> ditt projekt</span>
           </h2>
 
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Har du ett spännande projekt i åtanke? Vi älskar att höra om nya
-            utmaningar och diskutera hur vi kan hjälpa dig att förverkliga dina
-            digitala visioner.
+            Har du en idé som du vill förverkliga? Vi hjälper gärna till att ta
+            fram en plan och förklara vad som behöver göras. Kontakta oss så
+            berättar vi mer.
           </p>
         </motion.div>
 
@@ -255,76 +249,22 @@ export default function ModernContact() {
                   />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="projectType"
-                      className="block text-sm font-medium text-text-primary mb-2"
-                    >
-                      Projekttyp
-                    </label>
-                    <select
-                      name="projectType"
-                      id="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-text-primary transition-colors duration-200"
-                    >
-                      <option value="">Välj projekttyp</option>
-                      <option value="Webbplats">Webbplats</option>
-                      <option value="Webbapplikation">Webbapplikation</option>
-                      <option value="SaaS-produkt">SaaS-produkt</option>
-                      <option value="Mobilapp">Mobilapp</option>
-                      <option value="E-handel">E-handel</option>
-                      <option value="Annat">Annat</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="budget"
-                      className="block text-sm font-medium text-text-primary mb-2"
-                    >
-                      Budget
-                    </label>
-                    <select
-                      name="budget"
-                      id="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-text-primary transition-colors duration-200"
-                    >
-                      <option value="">Välj budget</option>
-                      <option value="50k-100k">50k - 100k SEK</option>
-                      <option value="100k-250k">100k - 250k SEK</option>
-                      <option value="250k-500k">250k - 500k SEK</option>
-                      <option value="500k+">500k+ SEK</option>
-                    </select>
-                  </div>
-                </div>
-
                 <div>
                   <label
-                    htmlFor="timeline"
+                    htmlFor="phone"
                     className="block text-sm font-medium text-text-primary mb-2"
                   >
-                    Tidslinje
+                    Telefonnummer
                   </label>
-                  <select
-                    name="timeline"
-                    id="timeline"
-                    value={formData.timeline}
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-text-primary transition-colors duration-200"
-                  >
-                    <option value="">Välj tidslinje</option>
-                    <option value="Så snart som möjlig">
-                      Så snart som möjligt
-                    </option>
-                    <option value="1-2 månader">1-2 månader</option>
-                    <option value="3-6 månader">3-6 månader</option>
-                    <option value="6+ månader">6+ månader</option>
-                  </select>
+                    placeholder="Ditt telefonnummer (valfritt)"
+                  />
                 </div>
 
                 <div>

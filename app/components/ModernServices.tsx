@@ -17,13 +17,14 @@ import {
 import Card from "./ui/Card";
 import Button from "./ui/Button";
 import Badge from "./Badge";
+import { useState, useEffect } from "react";
 
 const services = [
   {
     icon: Code2,
     title: "Webbutveckling",
     description:
-      "Moderna, responsiva webbplatser byggda med senaste tekniken för optimal prestanda och användarupplevelse.",
+      "Snabba och mobilvänliga webbplatser som fungerar perfekt på alla enheter. Vi använder modern teknik för bästa resultat.",
     features: [
       "React/Next.js",
       "TypeScript",
@@ -36,7 +37,7 @@ const services = [
     icon: Sparkles,
     title: "AI-integration",
     description:
-      "Smarta AI-lösningar som automatiserar processer och förbättrar användarupplevelsen med intelligenta funktioner.",
+      "Smarta lösningar som sparar tid och förbättrar kundupplevelsen. Vi integrerar AI på ett sätt som faktiskt hjälper ditt företag.",
     features: [
       "ChatGPT/OpenAI",
       "Machine Learning",
@@ -49,7 +50,7 @@ const services = [
     icon: Cloud,
     title: "SaaS-utveckling",
     description:
-      "Skalbara mjukvarulösningar som en tjänst, från MVP till företagsnivå med robust arkitektur.",
+      "Webbaserade system som växer med ditt företag. Från enkla verktyg till avancerade plattformar för många användare.",
     features: ["Multi-tenant", "API-first", "Microservices", "Auto-scaling"],
     color: "from-green-500 to-emerald-500",
   },
@@ -57,7 +58,7 @@ const services = [
     icon: Database,
     title: "Backend & API",
     description:
-      "Kraftfulla backend-lösningar med säkra APIs för att driva dina applikationer och integrera system.",
+      "Stabila system som håller din webbplats igång. Vi bygger säkra kopplingar mellan olika tjänster och databaser.",
     features: [
       "Node.js/Python",
       "PostgreSQL/MongoDB",
@@ -70,7 +71,7 @@ const services = [
     icon: Palette,
     title: "UI/UX Design",
     description:
-      "Användarvänliga gränssnitt och enastående användarupplevelser baserade på datadrivna insikter.",
+      "Design som känns naturlig att använda. Vi skapar gränssnitt som dina kunder förstår och gillar att använda.",
     features: ["Figma/Sketch", "Design Systems", "Prototyping", "User Testing"],
     color: "from-indigo-500 to-purple-500",
   },
@@ -78,7 +79,7 @@ const services = [
     icon: Rocket,
     title: "DevOps & Hosting",
     description:
-      "Komplett deployment och infrastrukturhantering för optimal prestanda och säkerhet.",
+      "Vi tar hand om servrar och uppdateringar så din webbplats alltid fungerar snabbt och säkert.",
     features: ["CI/CD", "Docker/Kubernetes", "AWS/Vercel", "Monitoring"],
     color: "from-teal-500 to-blue-500",
   },
@@ -86,7 +87,7 @@ const services = [
     icon: BarChart3,
     title: "Analytics & SEO",
     description:
-      "Datadriven optimering för att maximera synlighet, trafik och konverteringsgrad.",
+      "Hjälp att synas bättre på Google och förstå hur besökarna använder din webbplats.",
     features: ["Google Analytics", "SEO Audit", "Performance", "A/B Testing"],
     color: "from-yellow-500 to-orange-500",
   },
@@ -94,7 +95,7 @@ const services = [
     icon: Shield,
     title: "Säkerhet & Underhåll",
     description:
-      "Omfattande säkerhetslösningar och löpande underhåll för att skydda dina digitala tillgångar.",
+      "Vi håller din webbplats säker och uppdaterad. Support när du behöver det och regelbundna säkerhetskontroller.",
     features: ["Security Audit", "SSL/TLS", "GDPR Compliance", "24/7 Support"],
     color: "from-red-500 to-pink-500",
   },
@@ -128,6 +129,21 @@ export default function ModernServices() {
     triggerOnce: true,
   });
 
+  const [showAllServices, setShowAllServices] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if we're on mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section
       id="services"
@@ -156,14 +172,14 @@ export default function ModernServices() {
           />
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            Fullservice-lösningar för
-            <span className="gradient-text"> digital framgång</span>
+            Allt du behöver för att
+            <span className="gradient-text"> lyckas online</span>
           </h2>
 
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Vi erbjuder allt du behöver för att bygga, lansera och skala dina
-            digitala produkter. Från idé till implementation med modern teknik
-            och proven metodiker.
+            Vi hjälper dig från idé till färdig webbplats. Oavsett om du behöver
+            en enkel hemsida eller ett komplext system, så har vi kunskap och
+            erfarenhet för att få det gjort.
           </p>
         </motion.div>
 
@@ -172,60 +188,81 @@ export default function ModernServices() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8"
         >
-          {services.map((service) => (
-            <motion.div key={service.title} variants={itemVariants}>
-              <Card
-                variant="elevated"
-                className="group h-full relative overflow-hidden hover-glow"
-              >
-                {/* Gradient Background */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                />
-
-                {/* Content */}
-                <div className="relative p-6">
-                  {/* Icon */}
+          {(isMobile && !showAllServices ? services.slice(0, 3) : services).map(
+            (service) => (
+              <motion.div key={service.title} variants={itemVariants}>
+                <Card
+                  variant="elevated"
+                  className="group h-full relative overflow-hidden hover-glow"
+                >
+                  {/* Gradient Background */}
                   <div
-                    className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <service.icon className="w-6 h-6 text-white" />
-                  </div>
+                    className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  />
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors duration-300">
-                    {service.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="relative p-6">
+                    {/* Icon */}
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <service.icon className="w-6 h-6 text-white" />
+                    </div>
 
-                  {/* Description */}
-                  <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                    {service.description}
-                  </p>
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
 
-                  {/* Features */}
-                  <div className="space-y-2">
-                    {service.features.map((feature) => (
-                      <div
-                        key={feature}
-                        className="flex items-center text-xs text-text-muted"
-                      >
-                        <Zap className="w-3 h-3 text-primary mr-2 flex-shrink-0" />
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
+                    {/* Description */}
+                    <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                      {service.description}
+                    </p>
 
-                  {/* Hover Arrow */}
-                  {/* <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                    {/* Features */}
+                    <div className="space-y-2">
+                      {service.features.map((feature) => (
+                        <div
+                          key={feature}
+                          className="flex items-center text-xs text-text-muted"
+                        >
+                          <Zap className="w-3 h-3 text-primary mr-2 flex-shrink-0" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Hover Arrow */}
+                    {/* <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
                     <ArrowRight className="w-5 h-5 text-primary" />
                   </div> */}
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+                  </div>
+                </Card>
+              </motion.div>
+            )
+          )}
         </motion.div>
+
+        {/* Show More Button - Only on Mobile */}
+        {isMobile && !showAllServices && services.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mt-4 mb-12"
+          >
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAllServices(true)}
+              className="cursor-pointer"
+            >
+              Visa fler tjänster ({services.length - 3})
+            </Button>
+          </motion.div>
+        )}
 
         {/* CTA Section */}
         <motion.div

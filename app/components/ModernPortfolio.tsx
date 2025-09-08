@@ -100,9 +100,6 @@ const portfolioItems = [
   },
 ];
 
-
-
-
 export default function ModernPortfolio() {
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -119,9 +116,9 @@ export default function ModernPortfolio() {
     };
 
     checkMobile();
-    window.addEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
 
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   return (
@@ -155,13 +152,18 @@ export default function ModernPortfolio() {
           </h2>
 
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Vi har haft nöjet att bidra till utvecklingen av digitala lösningar för flera välkända varumärken, både direkt och via samarbeten med partnerbyråer. Här är ett urval av projekt vi varit delaktiga i.
+            Vi har haft nöjet att bidra till utvecklingen av digitala lösningar
+            för flera välkända varumärken, både direkt och via samarbeten. Här
+            är ett urval av projekt vi varit delaktiga i.
           </p>
         </motion.div>
 
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {(isMobile && !showAllProjects ? portfolioItems.slice(0, 3) : portfolioItems).map((item, index) => (
+          {(isMobile && !showAllProjects
+            ? portfolioItems.slice(0, 3)
+            : portfolioItems
+          ).map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 50 }}
@@ -174,15 +176,23 @@ export default function ModernPortfolio() {
               >
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
-                  <div className={`w-full h-full flex items-center justify-center ${
-                    item.title === "Hirena" ? "bg-gradient-to-br from-primary/20 to-secondary/20" :
-                    item.title === "Blackstone Steakhouse" ? "bg-gradient-to-br from-black/30 via-red-900/30 to-red-600/30" :
-                    item.title === "Skedvi Bröd" ? "bg-gradient-to-br from-orange-400/30 via-yellow-400/30 to-orange-500/30" :
-                    item.title === "Carl Larsson-gården" ? "bg-gradient-to-br from-red-500/30 via-white/20 to-red-600/30" :
-                    item.title === "Sylwan & Fenger-Krog" ? "bg-gradient-to-br from-white/30 via-green-100/30 to-green-400/30" :
-                    item.title === "Din hemsida" ? "bg-gradient-to-br from-purple-500/30 via-blue-500/30 to-indigo-500/30" :
-                    "bg-gradient-to-br from-primary/20 to-secondary/20"
-                  }`}>
+                  <div
+                    className={`w-full h-full flex items-center justify-center ${
+                      item.title === "Hirena"
+                        ? "bg-gradient-to-br from-primary/20 to-secondary/20"
+                        : item.title === "Blackstone Steakhouse"
+                        ? "bg-gradient-to-br from-black/30 via-red-900/30 to-red-600/30"
+                        : item.title === "Skedvi Bröd"
+                        ? "bg-gradient-to-br from-orange-400/30 via-yellow-400/30 to-orange-500/30"
+                        : item.title === "Carl Larsson-gården"
+                        ? "bg-gradient-to-br from-red-500/30 via-white/20 to-red-600/30"
+                        : item.title === "Sylwan & Fenger-Krog"
+                        ? "bg-gradient-to-br from-white/30 via-green-100/30 to-green-400/30"
+                        : item.title === "Din hemsida"
+                        ? "bg-gradient-to-br from-purple-500/30 via-blue-500/30 to-indigo-500/30"
+                        : "bg-gradient-to-br from-primary/20 to-secondary/20"
+                    }`}
+                  >
                     {item.title === "Hirena" ? (
                       <Image
                         src="/images/hirena.png"
@@ -201,7 +211,7 @@ export default function ModernPortfolio() {
                   </div>
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 md:transition-opacity md:duration-300 flex items-center justify-center space-x-4">
                     {item.title === "Hirena" ? (
                       <span className="text-red-400 font-semibold text-sm bg-black/70 px-3 py-2 rounded-md">
                         Currently not available
@@ -215,7 +225,11 @@ export default function ModernPortfolio() {
                         variant="outline"
                         size="sm"
                         leftIcon={<ArrowRight className="w-4 h-4" />}
-                        onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                        onClick={() =>
+                          document
+                            .getElementById("contact")
+                            ?.scrollIntoView({ behavior: "smooth" })
+                        }
                         className="cursor-pointer"
                       >
                         Kontakta oss
@@ -276,6 +290,54 @@ export default function ModernPortfolio() {
                         {tech}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Mobile Action Buttons */}
+                  <div className="flex flex-col gap-3 md:hidden">
+                    {item.title === "Hirena" ? (
+                      <div className="text-red-400 font-semibold text-sm text-center py-3">
+                        Currently not available
+                      </div>
+                    ) : item.title === "Carl Larsson-gården" ? (
+                      <div className="text-blue-400 font-semibold text-sm text-center py-3">
+                        Website currently being built
+                      </div>
+                    ) : item.title === "Din hemsida" ? (
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        leftIcon={<ArrowRight className="w-4 h-4" />}
+                        onClick={() =>
+                          document
+                            .getElementById("contact")
+                            ?.scrollIntoView({ behavior: "smooth" })
+                        }
+                        className="cursor-pointer w-full py-3 min-h-[48px]"
+                      >
+                        Kontakta oss
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        leftIcon={<ExternalLink className="w-4 h-4" />}
+                        onClick={() => window.open(item.liveUrl, "_blank")}
+                        className="cursor-pointer w-full py-3 min-h-[48px]"
+                      >
+                        Besök Webbplats
+                      </Button>
+                    )}
+                    {item.caseStudyUrl && (
+                      <Button
+                        variant="ghost"
+                        size="lg"
+                        leftIcon={<ArrowRight className="w-4 h-4" />}
+                        onClick={() => window.open(item.caseStudyUrl, "_blank")}
+                        className="cursor-pointer w-full py-3 min-h-[48px]"
+                      >
+                        Läs Case Study
+                      </Button>
+                    )}
                   </div>
 
                   {/* Results */}
