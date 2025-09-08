@@ -8,6 +8,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { event } from "@/lib/analytics";
 import Button from "./ui/Button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const navigation = [
   { name: "Hem", href: "/#home" },
@@ -167,12 +168,18 @@ export default function Navbar() {
                 onClick={(e) => handleNavigation("/#home", e)}
                 className="flex items-center space-x-2 cursor-pointer"
               >
-                <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                {/* <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-lg">D</span>
-                </div>
-                <span className="text-xl font-bold gradient-text">
+                </div> */}
+                <Image
+                  src="/logo/DataflowLogo.png"
+                  alt="Dataflow Solutions Logo"
+                  width={40}
+                  height={10000}
+                />
+                {/* <span className="text-xl font-bold gradient-text">
                   Dataflow Solutions
-                </span>
+                </span> */}
               </button>
             </motion.div>
 
