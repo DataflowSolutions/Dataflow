@@ -128,13 +128,12 @@ export default function CookieConsent() {
                 <Cookie className="w-5 h-5 sm:w-6 sm:h-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-1 sm:mb-2">
-                    Vi använder cookies
+                    Cookies på vår webbplats
                   </h3>
                   <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-                    Vi använder nödvändiga cookies för att webbplatsen ska
-                    fungera. Vi använder också analytics-cookies för att förstå
-                    hur du använder vår webbplats så att vi kan förbättra den.
-                    Du kan när som helst ändra dina inställningar.
+                    Vi använder några cookies för att hemsidan ska fungera. Vi
+                    samlar också in statistik för att förstå hur vi kan göra
+                    webbplatsen bättre. Du bestämmer själv vad du vill tillåta.
                   </p>
                 </div>
               </div>

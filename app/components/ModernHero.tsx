@@ -78,7 +78,7 @@ export default function ModernHero() {
               className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium mb-6"
             >
               <Star className="w-4 h-4 mr-2 fill-current" />
-              Din främsta partner för digital framgång
+              Vi hjälper företag att växa digitalt
             </motion.div>
 
             {/* Headline */}
@@ -88,9 +88,9 @@ export default function ModernHero() {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
             >
-              <span className="text-text-primary">Bygg framtidens</span>
+              <span className="text-text-primary">Vi bygger</span>
               <br />
-              <span className="gradient-text">digitala lösningar</span>
+              <span className="gradient-text">webbplatser som säljer</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -100,9 +100,9 @@ export default function ModernHero() {
               transition={{ duration: 0.6 }}
               className="text-lg md:text-xl text-text-secondary max-w-2xl mb-8"
             >
-              Vi skapar moderna webbplatser och SaaS-produkter som driver
-              affärstillväxt. Från idé till lansering - vi gör din digitala
-              vision till verklighet.
+              Moderna webbplatser och digitala lösningar som hjälper ditt
+              företag att nå fler kunder. Vi tar hand om tekniken så att du kan
+              fokusera på ditt företag.
             </motion.p>
 
             {/* CTA Buttons */}

@@ -167,14 +167,14 @@ export default function ModernContact() {
           <Badge text="Kontakt" variant="primary" size="lg" className="mb-6" />
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            Låt oss skapa något
-            <span className="gradient-text"> extraordinärt tillsammans</span>
+            Låt oss prata om
+            <span className="gradient-text"> ditt projekt</span>
           </h2>
 
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Har du ett spännande projekt i åtanke? Vi älskar att höra om nya
-            utmaningar och diskutera hur vi kan hjälpa dig att förverkliga dina
-            digitala visioner.
+            Har du en idé som du vill förverkliga? Vi hjälper gärna till att ta
+            fram en plan och förklara vad som behöver göras. Kontakta oss så
+            berättar vi mer.
           </p>
         </motion.div>
 

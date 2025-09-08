@@ -17,7 +17,7 @@ import {
 import Card from "./ui/Card";
 import Button from "./ui/Button";
 import Badge from "./Badge";
-import { getFeaturedPost } from "../../lib/blogData";
+import { getFeaturedPost, getRegularPosts, BlogPost } from "../../lib/blogData";
 import Link from "next/link";
 
 // const categories = [
@@ -47,7 +47,11 @@ import Link from "next/link";
 //   },
 // ];
 
-export default function ModernBlog() {
+interface ModernBlogProps {
+  showAllPosts?: boolean;
+}
+
+export default function ModernBlog({ showAllPosts = false }: ModernBlogProps) {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -61,8 +65,9 @@ export default function ModernBlog() {
     });
   };
 
-  // Derive featured post from the merged array
+  // Derive featured post and regular posts from the data
   const featuredPost = getFeaturedPost();
+  const regularPosts = getRegularPosts();
 
   return (
     <section
@@ -92,13 +97,13 @@ export default function ModernBlog() {
           />
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            Senaste insikterna från
-            <span className="gradient-text"> vårt expertteam</span>
+            Tips och guider från
+            <span className="gradient-text"> våra utvecklare</span>
           </h1>
 
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Håll dig uppdaterad med de senaste trenderna inom webbutveckling,
-            tekniska guider och djupgående analyser från våra experter.
+            Här delar vi med oss av erfarenheter och praktiska tips som kan
+            hjälpa dig att fatta bättre beslut om teknik och webb.
           </p>
         </motion.div>
 
@@ -184,57 +189,59 @@ export default function ModernBlog() {
                 </div>
 
                 {/* Content */}
-                <div className="p-4 sm:p-6 lg:p-8">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0 mb-3 sm:mb-4">
-                    <Badge
-                      text={featuredPost.category}
-                      variant="primary"
-                      size="sm"
-                    />
-                    <div className="flex items-center space-x-3 sm:space-x-4 text-text-muted text-xs sm:text-sm">
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-3 sm:space-y-0 mb-4 sm:mb-6">
+                    <div>
+                      <Badge
+                        text={featuredPost.category}
+                        variant="primary"
+                        size="sm"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-4 text-text-muted text-sm">
                       <div className="flex items-center">
-                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                        <Calendar className="w-4 h-4 mr-2" />
                         {formatDate(featuredPost.publishedAt)}
                       </div>
                       <div className="flex items-center">
-                        <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                        <Clock className="w-4 h-4 mr-2" />
                         {featuredPost.readTime}
                       </div>
                     </div>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-bold text-text-primary mb-3 sm:mb-4 leading-tight">
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-text-primary mb-4 sm:mb-6 leading-tight">
                     {featuredPost.title}
                   </h2>
 
-                  <p className="text-text-secondary mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                  <p className="text-text-secondary mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg">
                     {featuredPost.excerpt}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
+                  <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
                     {featuredPost.tags.map((tag: string) => (
                       <span
                         key={tag}
-                        className="flex items-center px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md"
+                        className="flex items-center px-3 py-2 bg-muted text-muted-foreground text-sm rounded-md"
                       >
-                        <Tag className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-1" />
+                        <Tag className="w-3 h-3 mr-2" />
                         {tag}
                       </span>
                     ))}
                   </div>
 
                   {/* Author & CTA */}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
                     <div className="flex items-center">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                        <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4">
+                        <User className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <div className="font-medium text-text-primary text-sm">
+                        <div className="font-medium text-text-primary text-base">
                           {featuredPost.author.name}
                         </div>
-                        <div className="text-text-muted text-xs">
+                        <div className="text-text-muted text-sm">
                           {featuredPost.author.role}
                         </div>
                       </div>
@@ -256,9 +263,9 @@ export default function ModernBlog() {
                     >
                       <Button
                         variant="primary"
-                        size="md"
-                        rightIcon={<ArrowRight className="w-4 h-4" />}
-                        className="cursor-pointer w-full sm:w-auto"
+                        size="lg"
+                        rightIcon={<ArrowRight className="w-5 h-5" />}
+                        className="cursor-pointer w-full sm:w-auto min-h-[48px]"
                       >
                         Läs mer
                         <span className="sr-only">
@@ -273,6 +280,150 @@ export default function ModernBlog() {
           </motion.div>
         )}
 
+        {/* Regular Posts Grid - Only show when showAllPosts is true */}
+        {showAllPosts && regularPosts.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-8 sm:mb-12">
+              Fler artiklar
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {regularPosts.map((post: BlogPost, index: number) => (
+                <motion.div
+                  key={post.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                >
+                  <Card
+                    variant="elevated"
+                    className="overflow-hidden h-full hover-glow group"
+                  >
+                    {/* Image */}
+                    <div className="relative h-48 sm:h-52">
+                      <div
+                        className={`w-full h-full flex items-center justify-center ${
+                          post.category === "Tillgänglighet"
+                            ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20"
+                            : post.category === "Affärer"
+                            ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20"
+                            : "bg-gradient-to-br from-primary/20 to-secondary/20"
+                        }`}
+                        role="img"
+                        aria-label={`Grafisk representation för artikel: ${post.title}`}
+                      >
+                        <div className="text-center px-4">
+                          <div
+                            className={`w-14 h-14 sm:w-16 sm:h-16 rounded-lg mx-auto mb-3 flex items-center justify-center bg-gradient-to-r ${
+                              post.category === "Tillgänglighet"
+                                ? "from-blue-500 to-cyan-500"
+                                : post.category === "Affärer"
+                                ? "from-purple-500 to-violet-500"
+                                : "from-primary to-secondary"
+                            } shadow-lg`}
+                          >
+                            <BookOpen
+                              className="w-7 h-7 sm:w-8 sm:h-8 text-white"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg drop-shadow-lg text-center">
+                            {post.title}
+                          </h4>
+                        </div>
+                      </div>
+                      <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                        <Badge
+                          text={post.category}
+                          variant="primary"
+                          size="sm"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 sm:p-8">
+                      <div className="flex items-center space-x-4 mb-4 text-text-muted text-sm">
+                        <div className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-2" />
+                          {formatDate(post.publishedAt)}
+                        </div>
+                        <div className="flex items-center">
+                          <Clock className="w-4 h-4 mr-2" />
+                          {post.readTime}
+                        </div>
+                      </div>
+
+                      <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                        {post.title}
+                      </h3>
+
+                      <p className="text-text-secondary text-sm sm:text-base mb-6 leading-relaxed">
+                        {post.excerpt}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {post.tags.slice(0, 3).map((tag: string) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Author & CTA */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-3">
+                            <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-text-primary text-sm">
+                              {post.author.name}
+                            </div>
+                          </div>
+                        </div>
+
+                        <Link
+                          aria-label={`Läs mer om ${post.title}`}
+                          href={`/blog/${post.id}`}
+                          onClick={() => {
+                            // Track regular blog click
+                            event({
+                              action: "blog_click",
+                              category: "Blog",
+                              label: `Regular: ${post.title}`,
+                              value: 1,
+                            });
+                          }}
+                        >
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="cursor-pointer"
+                          >
+                            <span className="sr-only">
+                              Read more about {post.title}
+                            </span>
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -282,11 +433,11 @@ export default function ModernBlog() {
         >
           <Card variant="glass" className="max-w-2xl mx-auto p-8">
             <h3 className="text-2xl font-bold text-text-primary mb-4">
-              Vill du läsa fler artiklar?
+              Läs mer på vår blogg
             </h3>
             <p className="text-text-secondary mb-6">
-              Utforska vår kompletta blogg med djupgående guider, tutorials och
-              tekniska insikter från vårt expertteam.
+              Vi skriver regelbundet om webbutveckling, design och andra saker
+              som kan vara användbara för ditt företag.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

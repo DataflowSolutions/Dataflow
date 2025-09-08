@@ -135,7 +135,7 @@ export default function ModernAbout() {
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-12">
             Dataflow Solutions grundades med visionen att göra avancerad
             webbutveckling tillgänglig för alla företag. Vi kombinerar teknisk
-            excellens med kreativ innovation för att skapa lösningar som driver
+            expertis med kreativ innovation för att skapa lösningar som driver
             verklig affärstillväxt.
           </p>
         </motion.div>

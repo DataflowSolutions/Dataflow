@@ -3,7 +3,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blogg | Dataflow Solutions - Insikter inom Webbutveckling & SaaS",
-  description: "Läs våra senaste artiklar om modern webbutveckling, SaaS-utveckling, digital strategi och tekniska insikter. Expertkunskap från Dataflow Solutions-teamet.",
+  description:
+    "Läs våra senaste artiklar om modern webbutveckling, SaaS-utveckling, digital strategi och tekniska insikter. Expertkunskap från Dataflow Solutions-teamet.",
   keywords: [
     "webbutvecklingsblogg",
     "SaaS artiklar",
@@ -20,7 +21,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Blogg | Dataflow Solutions - Expertinsikter inom Webbutveckling",
-    description: "Upptäck våra senaste artiklar om modern webbutveckling, SaaS-lösningar och digital strategi. Få värdefulla insikter från vårt expertteam.",
+    description:
+      "Upptäck våra senaste artiklar om modern webbutveckling, SaaS-lösningar och digital strategi. Få värdefulla insikter från vårt expertteam.",
     url: "https://dataflowsolutions.se/blog",
     siteName: "Dataflow Solutions",
     type: "website",
@@ -36,7 +38,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blogg | Dataflow Solutions - Webbutvecklingsinsikter",
-    description: "Läs expertartiklar om modern webbutveckling, SaaS och digital strategi från Dataflow Solutions.",
+    description:
+      "Läs expertartiklar om modern webbutveckling, SaaS och digital strategi från Dataflow Solutions.",
     images: ["/logo/Tachyon2.png"],
     creator: "@dataflowsolutions_se",
   },
@@ -54,26 +57,27 @@ export default function BlogPage() {
   const blogStructuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Dataflow Solutions Blogg",
-    "description": "Expertartiklar om modern webbutveckling, SaaS-utveckling och digital strategi",
-    "url": "https://dataflowsolutions.se/blog",
-    "publisher": {
+    name: "Dataflow Solutions Blogg",
+    description:
+      "Expertartiklar om modern webbutveckling, SaaS-utveckling och digital strategi",
+    url: "https://dataflowsolutions.se/blog",
+    publisher: {
       "@type": "Organization",
-      "name": "Dataflow Solutions",
-      "logo": {
+      name: "Dataflow Solutions",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://dataflowsolutions.se/logo/Tachyon2.png"
-      }
+        url: "https://dataflowsolutions.se/logo/Tachyon2.png",
+      },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://dataflowsolutions.se/blog"
+      "@id": "https://dataflowsolutions.se/blog",
     },
-    "inLanguage": "sv-SE",
-    "copyrightHolder": {
+    inLanguage: "sv-SE",
+    copyrightHolder: {
       "@type": "Organization",
-      "name": "Dataflow Solutions"
-    }
+      name: "Dataflow Solutions",
+    },
   };
 
   return (
@@ -86,7 +90,7 @@ export default function BlogPage() {
         }}
       />
       <div className="min-h-screen pt-20">
-        <ModernBlog />
+        <ModernBlog showAllPosts={true} />
       </div>
     </>
   );
