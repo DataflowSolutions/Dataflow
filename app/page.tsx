@@ -12,7 +12,7 @@ export default function Home() {
       <ModernServices />
       <ModernPortfolio />
       <ModernAbout />
-      <ModernBlog showAllPosts={false} />
+      <ModernBlog />
       <ModernContact />
     </div>
   );
