@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
-  Target,
-  Eye,
   Heart,
   Users,
   Award,
@@ -58,7 +56,7 @@ const team = [
       "AI/ML",
       "Python",
       "Docker",
-      "C++"
+      "C++",
     ],
     social: {
       linkedin: "https://www.linkedin.com/in/albin-hasanaj/",
@@ -71,13 +69,7 @@ const team = [
     role: "Delägare / Utvecklare",
     bio: "Fokuserar på frontend utveckling med högkvalitativa lösningar för webben. Driver implementation av komplexa funktioner och integrationer.",
     image: "/images/team/oliver.png",
-    skills: [
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "Python",
-      "REST APIs",
-    ],
+    skills: ["Next.js", "TypeScript", "Node.js", "Python", "REST APIs"],
     social: {
       linkedin: "https://www.linkedin.com/in/oliver-soderlund-granzer/",
       github: "https://github.com/oliversoder06",
@@ -89,20 +81,17 @@ const team = [
     role: "CMO / Growth",
     bio: "Ansvarar för marknadsföring, kundrelationer och strategisk tillväxt. Driver outreach, branding och leadgenerering för att expandera företagets räckvidd.",
     image: "/images/team/melvin.png",
-    skills: ["Marknadsföring", "Growth Strategy", "Content Creation", "Lead Generation"],
+    skills: [
+      "Marknadsföring",
+      "Growth Strategy",
+      "Content Creation",
+      "Lead Generation",
+    ],
     social: {
       linkedin: "https://www.linkedin.com/in/melvin-sundberg-41876b2ab/",
       email: "melvin@dataflowsolutions.se",
     },
   },
-];
-
-
-const stats = [
-  { number: "10+", label: "Nöjda kunder" },
-  { number: "10+", label: "Projekt levererade" },
-  { number: "5+", label: "År av expertis" },
-  { number: "24/7", label: "Support & underhåll" },
 ];
 
 export default function ModernAbout() {
@@ -149,66 +138,6 @@ export default function ModernAbout() {
             excellens med kreativ innovation för att skapa lösningar som driver
             verklig affärstillväxt.
           </p>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-text-secondary">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Mission & Vision */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20"
-        >
-          <Card variant="glass" className="p-8">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center mr-4">
-                <Target className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-text-primary">
-                Vår Mission
-              </h3>
-            </div>
-            <p className="text-text-secondary leading-relaxed">
-              Att demokratisera tillgången till högkvalitativ webbutveckling och
-              hjälpa företag av alla storlekar att lyckas digitalt. Vi tror att
-              alla förtjänar en digital närvaro som speglar deras ambitioner och
-              värderingar.
-            </p>
-          </Card>
-
-          <Card variant="glass" className="p-8">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-secondary to-primary rounded-lg flex items-center justify-center mr-4">
-                <Eye className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-text-primary">
-                Vår Vision
-              </h3>
-            </div>
-            <p className="text-text-secondary leading-relaxed">
-              Att vara Nordens ledande partner för digital transformation, känd
-              för vår tekniska innovation, designexcellens och förmåga att
-              förvandla komplexa affärsutmaningar till eleganta digitala
-              lösningar.
-            </p>
-          </Card>
         </motion.div>
 
         {/* Values */}

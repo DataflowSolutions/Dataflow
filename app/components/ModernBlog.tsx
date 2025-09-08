@@ -17,7 +17,7 @@ import {
 import Card from "./ui/Card";
 import Button from "./ui/Button";
 import Badge from "./Badge";
-import { getFeaturedPost, getRegularPosts, BlogPost } from "../../lib/blogData";
+import { getFeaturedPost } from "../../lib/blogData";
 import Link from "next/link";
 
 // const categories = [
@@ -61,9 +61,8 @@ export default function ModernBlog() {
     });
   };
 
-  // Derive featured post and regular posts from the merged array
+  // Derive featured post from the merged array
   const featuredPost = getFeaturedPost();
-  const blogPosts = getRegularPosts();
 
   return (
     <section
@@ -148,18 +147,31 @@ export default function ModernBlog() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="relative h-64 lg:h-full">
-                  <div className={`w-full h-full flex items-center justify-center ${
-                    featuredPost.category === "Tillgänglighet" ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20" :
-                    featuredPost.category === "Affärer" ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20" :
-                    "bg-gradient-to-br from-primary/20 to-secondary/20"
-                  }`} role="img" aria-label={`Grafisk representation för utvald artikel: ${featuredPost.title}`}>
+                  <div
+                    className={`w-full h-full flex items-center justify-center ${
+                      featuredPost.category === "Tillgänglighet"
+                        ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20"
+                        : featuredPost.category === "Affärer"
+                        ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20"
+                        : "bg-gradient-to-br from-primary/20 to-secondary/20"
+                    }`}
+                    role="img"
+                    aria-label={`Grafisk representation för utvald artikel: ${featuredPost.title}`}
+                  >
                     <div className="text-center">
-                      <div className={`w-20 h-20 rounded-xl mx-auto mb-4 flex items-center justify-center bg-gradient-to-r shadow-lg ${
-                        featuredPost.category === "Tillgänglighet" ? "from-blue-500 to-cyan-500" :
-                        featuredPost.category === "Affärer" ? "from-purple-500 to-violet-500" :
-                        "from-primary to-secondary"
-                      }`}>
-                        <BookOpen className="w-10 h-10 text-white" aria-hidden="true" />
+                      <div
+                        className={`w-20 h-20 rounded-xl mx-auto mb-4 flex items-center justify-center bg-gradient-to-r shadow-lg ${
+                          featuredPost.category === "Tillgänglighet"
+                            ? "from-blue-500 to-cyan-500"
+                            : featuredPost.category === "Affärer"
+                            ? "from-purple-500 to-violet-500"
+                            : "from-primary to-secondary"
+                        }`}
+                      >
+                        <BookOpen
+                          className="w-10 h-10 text-white"
+                          aria-hidden="true"
+                        />
                       </div>
                       <h3 className="text-white font-bold text-xl md:text-2xl drop-shadow-2xl text-center px-4">
                         {featuredPost.title}
@@ -257,128 +269,6 @@ export default function ModernBlog() {
             </Card>
           </motion.div>
         )}
-
-        {/* Blog Posts Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-16"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {blogPosts.map((post: BlogPost, index: number) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              >
-                <Card
-                  variant="elevated"
-                  className="overflow-hidden h-full hover-glow"
-                >
-                  {/* Image */}
-                  <div className="relative h-48">
-                    <div className={`w-full h-full flex items-center justify-center ${
-                      post.category === "Tillgänglighet" ? "bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20" :
-                      post.category === "Affärer" ? "bg-gradient-to-br from-purple-500/20 via-violet-500/20 to-indigo-500/20" :
-                      "bg-gradient-to-br from-primary/20 to-secondary/20"
-                    }`} role="img" aria-label={`Grafisk representation för artikel: ${post.title}`}>
-                      <div className="text-center">
-                        <div className={`w-16 h-16 rounded-lg mx-auto mb-3 flex items-center justify-center bg-gradient-to-r ${
-                          post.category === "Tillgänglighet" ? "from-blue-500 to-cyan-500" :
-                          post.category === "Affärer" ? "from-purple-500 to-violet-500" :
-                          "from-primary to-secondary"
-                        } shadow-lg`}>
-                          <BookOpen className="w-8 h-8 text-white" aria-hidden="true" />
-                        </div>
-                        <h4 className="text-white font-bold text-lg drop-shadow-lg text-center px-2">
-                          {post.title}
-                        </h4>
-                      </div>
-                    </div>
-                    <div className="absolute top-4 left-4">
-                      <Badge text={post.category} variant="primary" size="sm" />
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center space-x-4 mb-3 text-text-muted text-sm">
-                      <div className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {formatDate(post.publishedAt)}
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="w-4 h-4 mr-1" />
-                        {post.readTime}
-                      </div>
-                    </div>
-
-                    <h3 className="text-lg font-bold text-text-primary mb-3 leading-tight">
-                      {post.title}
-                    </h3>
-
-                    <p className="text-text-secondary text-sm mb-4 leading-relaxed">
-                      {post.excerpt}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.slice(0, 2).map((tag: string) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Author */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-2">
-                          <User className="w-4 h-4 text-white" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-text-primary text-sm">
-                            {post.author.name}
-                          </div>
-                        </div>
-                      </div>
-
-                      <Link
-                        aria-label={`Läs mer om ${post.title}`}
-                        href={`/blog/${post.id}`}
-                        onClick={() => {
-                          // Track regular blog click
-                          event({
-                            action: "blog_click",
-                            category: "Blog",
-                            label: `Regular: ${post.title}`,
-                            value: 1,
-                          });
-                        }}
-                      >
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="cursor-pointer"
-                        >
-                          <span className="sr-only">
-                            Read more about {post.title}
-                          </span>
-                          <ArrowRight className="w-4 h-4" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* CTA */}
         <motion.div

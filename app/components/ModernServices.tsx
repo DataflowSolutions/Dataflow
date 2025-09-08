@@ -17,6 +17,7 @@ import {
 import Card from "./ui/Card";
 import Button from "./ui/Button";
 import Badge from "./Badge";
+import { useState, useEffect } from "react";
 
 const services = [
   {
@@ -128,6 +129,21 @@ export default function ModernServices() {
     triggerOnce: true,
   });
 
+  const [showAllServices, setShowAllServices] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if we're on mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section
       id="services"
@@ -174,58 +190,79 @@ export default function ModernServices() {
           animate={inView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
         >
-          {services.map((service) => (
-            <motion.div key={service.title} variants={itemVariants}>
-              <Card
-                variant="elevated"
-                className="group h-full relative overflow-hidden hover-glow"
-              >
-                {/* Gradient Background */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                />
-
-                {/* Content */}
-                <div className="relative p-6">
-                  {/* Icon */}
+          {(isMobile && !showAllServices ? services.slice(0, 3) : services).map(
+            (service) => (
+              <motion.div key={service.title} variants={itemVariants}>
+                <Card
+                  variant="elevated"
+                  className="group h-full relative overflow-hidden hover-glow"
+                >
+                  {/* Gradient Background */}
                   <div
-                    className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <service.icon className="w-6 h-6 text-white" />
-                  </div>
+                    className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  />
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors duration-300">
-                    {service.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="relative p-6">
+                    {/* Icon */}
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <service.icon className="w-6 h-6 text-white" />
+                    </div>
 
-                  {/* Description */}
-                  <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                    {service.description}
-                  </p>
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
 
-                  {/* Features */}
-                  <div className="space-y-2">
-                    {service.features.map((feature) => (
-                      <div
-                        key={feature}
-                        className="flex items-center text-xs text-text-muted"
-                      >
-                        <Zap className="w-3 h-3 text-primary mr-2 flex-shrink-0" />
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
+                    {/* Description */}
+                    <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                      {service.description}
+                    </p>
 
-                  {/* Hover Arrow */}
-                  {/* <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                    {/* Features */}
+                    <div className="space-y-2">
+                      {service.features.map((feature) => (
+                        <div
+                          key={feature}
+                          className="flex items-center text-xs text-text-muted"
+                        >
+                          <Zap className="w-3 h-3 text-primary mr-2 flex-shrink-0" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Hover Arrow */}
+                    {/* <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
                     <ArrowRight className="w-5 h-5 text-primary" />
                   </div> */}
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+                  </div>
+                </Card>
+              </motion.div>
+            )
+          )}
         </motion.div>
+
+        {/* Show More Button - Only on Mobile */}
+        {isMobile && !showAllServices && services.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mt-4 mb-12"
+          >
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAllServices(true)}
+              className="cursor-pointer"
+            >
+              Visa fler tjänster ({services.length - 3})
+            </Button>
+          </motion.div>
+        )}
 
         {/* CTA Section */}
         <motion.div

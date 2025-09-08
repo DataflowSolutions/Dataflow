@@ -10,7 +10,7 @@ import Card from "./ui/Card";
 const stats = [
   { icon: Users, label: "Nöjda kunder", value: "10+" },
   { icon: Award, label: "Projekt levererade", value: "10+" },
-  { icon: TrendingUp, label: "Tillväxt för kunder", value: "300%" },
+  { icon: TrendingUp, label: "År av expertis", value: "5+" },
   { icon: Star, label: "Genomsnittligt betyg", value: "4.5" },
 ];
 
@@ -197,7 +197,10 @@ export default function ModernHero() {
             </motion.div>
 
             {/* Main Card */}
-            <Card variant="glass" className="relative p-8 hover-glow">
+            <Card
+              variant="glass"
+              className="relative p-8 hover-glow hidden md:block"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg" />
 
               {/* Browser Mock-up */}
@@ -227,7 +230,6 @@ export default function ModernHero() {
                   </div>
                 </div>
               </div>
-
             </Card>
           </motion.div>
         </div>
@@ -238,7 +240,7 @@ export default function ModernHero() {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
