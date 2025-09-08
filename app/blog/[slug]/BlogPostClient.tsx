@@ -14,6 +14,7 @@ import Button from "../../components/ui/Button";
 import Badge from "../../components/Badge";
 import ShareButton from "../../components/ShareButton";
 import { BlogPost } from "../../../lib/blogData";
+import { renderMarkdown } from "../../../lib/renderMarkdown";
 
 interface BlogPostClientProps {
   post: BlogPost;
@@ -31,16 +32,6 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
       month: "long",
       day: "numeric",
     });
-  };
-
-  const formatContent = (content: string) => {
-    return content
-      .replace(/\n/g, '<br />')
-      .replace(/### (.*?)(<br \/>|$)/g, '<h3 class="text-xl font-bold text-text-primary mt-8 mb-4">$1</h3>')
-      .replace(/## (.*?)(<br \/>|$)/g, '<h2 class="text-2xl font-bold text-text-primary mt-8 mb-4">$1</h2>')
-      .replace(/# (.*?)(<br \/>|$)/g, '<h1 class="text-3xl font-bold text-text-primary mt-8 mb-4">$1</h1>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-text-primary">$1</strong>')
-      .replace(/- (.*?)(<br \/>|$)/g, '<li class="ml-4 mb-2">$1</li>');
   };
 
   return (
@@ -132,9 +123,10 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
           </Card>
 
           {/* Article Content */}
-          <div className="prose prose-lg max-w-none text-text-primary">
-            <div dangerouslySetInnerHTML={{ __html: formatContent(post.content) }} />
-          </div>
+          <div
+            className="[&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>ul]:list-disc [&>ul]:pl-6 [&>ol]:list-decimal [&>ol]:pl-6 [&>code]:bg-muted [&>code]:px-1 [&>pre]:bg-muted [&>pre]:p-4 [&>pre]:rounded-lg prose prose-lg max-w-none text-text-primary space-y-6"
+            dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content, post.title) }}
+          />
 
           {/* Share Section */}
           <div className="mt-12 pt-8 border-t border-border">
@@ -142,7 +134,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
               Dela denna artikel
             </h3>
             <ShareButton
-              url={`https://dataflowsolutions.se/blog/${post.id}`}
+              url={`https://dataflowsolutions.se/blog/${post.slug}`}
               title={post.title}
               description={post.excerpt}
             />

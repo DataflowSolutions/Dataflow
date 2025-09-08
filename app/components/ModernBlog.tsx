@@ -64,6 +64,7 @@ export default function ModernBlog() {
   // Derive featured post and regular posts from the merged array
   const featuredPost = getFeaturedPost();
   const blogPosts = getRegularPosts();
+  const postsToShow = blogPosts.length ? blogPosts : []; // future-safe
 
   return (
     <section
@@ -228,7 +229,7 @@ export default function ModernBlog() {
 
                     <Link
                       aria-label={`Läs mer om ${featuredPost.title}`}
-                      href={`/blog/${featuredPost.id}`}
+                      href={`/blog/${featuredPost.slug}`}
                       onClick={() => {
                         // Track featured blog click
                         event({
@@ -266,7 +267,7 @@ export default function ModernBlog() {
           className="mb-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {blogPosts.map((post: BlogPost, index: number) => (
+            {postsToShow.map((post: BlogPost, index: number) => (
               <motion.div
                 key={post.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -350,7 +351,7 @@ export default function ModernBlog() {
 
                       <Link
                         aria-label={`Läs mer om ${post.title}`}
-                        href={`/blog/${post.id}`}
+                        href={`/blog/${post.slug}`}
                         onClick={() => {
                           // Track regular blog click
                           event({

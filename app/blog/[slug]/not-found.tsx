@@ -63,7 +63,7 @@ export default function NotFound() {
               {suggestedPosts.map((post) => (
                 <Link
                   key={post.id}
-                  href={`/blog/${post.id}`}
+                  href={`/blog/${post.slug}`}
                   className="block p-4 border border-border rounded-lg hover:bg-muted transition-colors"
                 >
                   <div className="flex items-start space-x-4">

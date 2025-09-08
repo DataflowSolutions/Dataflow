@@ -1,17 +1,17 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostClient from "./BlogPostClient";
-import { getPostById } from "../../../lib/blogData";
+import { getPostBySlug } from "../../../lib/blogData";
 
 interface BlogPostPageProps {
   params: Promise<{
-    id: string;
+    slug: string;
   }>;
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const resolvedParams = await params;
-  const post = getPostById(parseInt(resolvedParams.id));
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -23,22 +23,21 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: `${post.title} | Dataflow Solutions Blogg`,
     description: post.excerpt,
-    keywords: post.tags.join(", "),
     authors: [{ name: post.author.name }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://dataflowsolutions.se/blog/${post.id}`,
+      url: `https://dataflowsolutions.se/blog/${post.slug}`,
       type: "article",
       publishedTime: post.publishedAt,
       authors: [post.author.name],
       tags: post.tags,
       images: [
         {
-          url: post.image,
+          url: `https://dataflowsolutions.se${post.image}`,
           width: 800,
           height: 400,
-          alt: post.title,
+          alt: `${post.title} - Dataflow Solutions`,
         },
       ],
     },
@@ -46,23 +45,22 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [post.image],
+      images: [`https://dataflowsolutions.se${post.image}`],
     },
     alternates: {
-      canonical: `https://dataflowsolutions.se/blog/${post.id}`,
+      canonical: `https://dataflowsolutions.se/blog/${post.slug}`,
     },
     other: {
       "article:author": post.author.name,
       "article:published_time": post.publishedAt,
       "article:section": post.category,
-      "article:tag": post.tags.join(","),
     },
   };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const resolvedParams = await params;
-  const post = getPostById(parseInt(resolvedParams.id));
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -74,7 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "image": post.image,
+  "image": `https://dataflowsolutions.se${post.image}`,
     "author": {
       "@type": "Person",
       "name": post.author.name,
@@ -92,13 +90,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "dateModified": post.publishedAt,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://dataflowsolutions.se/blog/${post.id}`
+      "@id": `https://dataflowsolutions.se/blog/${post.slug}`
     },
     "articleSection": post.category,
     "keywords": post.tags.join(", "),
-    "wordCount": post.content.split(' ').length,
-    "timeRequired": `PT${post.readTime.split(' ')[0]}M`,
-    "url": `https://dataflowsolutions.se/blog/${post.id}`,
+    "wordCount": post.content
+      .replace(/[#*_`>~-]/g, " ")   // markdown-kontrolltecken bort
+      .replace(/\s+/g, " ")
+      .trim()
+      .split(" ").length,
+    "timeRequired": (() => {
+      const m = post.readTime.match(/\d+/);
+      return m ? `PT${m[0]}M` : undefined;
+    })(),
+    "url": `https://dataflowsolutions.se/blog/${post.slug}`,
     "isAccessibleForFree": true,
     "inLanguage": "sv-SE",
     "copyrightHolder": {
@@ -128,7 +133,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         "@type": "ListItem",
         "position": 3,
         "name": post.title,
-        "item": `https://dataflowsolutions.se/blog/${post.id}`
+        "item": `https://dataflowsolutions.se/blog/${post.slug}`
       }
     ]
   };
