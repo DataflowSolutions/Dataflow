@@ -14,6 +14,7 @@ import {
   // ExternalLink,
   //   MessageSquare,
 } from "lucide-react";
+import Image from "next/image";
 // import Button from "./ui/Button";
 
 const footerLinks = {
@@ -150,13 +151,13 @@ export default function ModernFooter() {
               className="lg:col-span-2"
             >
               {/* Logo */}
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">D</span>
-                </div>
-                <span className="text-xl font-bold gradient-text">
-                  Dataflow Solutions
-                </span>
+              <div className="mb-6">
+                <Image
+                  src="/logo/DataflowLogo.png"
+                  alt="Dataflow Solutions Logo"
+                  width={40}
+                  height={10000}
+                />
               </div>
 
               <p className="text-text-secondary mb-6 leading-relaxed">
