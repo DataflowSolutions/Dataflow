@@ -158,6 +158,63 @@ Behöver du en **tillgänglighetsanalys**, vill **uppgradera** din nuvarande web
     image: "/images/blog/backgroundBlog2.png",
     featured: true,
   },
+  {
+    id: 3,
+    slug: "dataflow-solutions-pa-lovable-event-9-september",
+    title: "Dataflow Solutions på Lovable Event — 9 september",
+    excerpt:
+      "Den 9 september deltog vi på Lovables event i Stockholm. En dag fylld av inspiration, nätverkande och diskussioner kring framtidens digitala lösningar.",
+    content: `# Dataflow Solutions på Lovable Event — 9 september
+
+Den **9 september 2025** deltog vi från **Dataflow Solutions** på **Lovables event i Stockholm**.  
+En inspirerande dag som gav oss nya perspektiv på **framtidens webbutveckling, design och AI-drivna lösningar**.
+
+## Varför vi deltog
+
+Som byrå som ständigt vill ligga i framkant såg vi eventet som en chans att:
+
+- **Nätverka** med andra företag och kreatörer inom tech och design  
+- **Få insikter** från Lovables ingenjörer och designers  
+- **Utforska nya trender** kring AI, tillgänglighet och användarupplevelser  
+
+## Våra största lärdomar
+
+Under dagen fick vi bland annat:
+
+- Lyssna på **tekniska föreläsningar** om hur AI kan integreras i digitala produkter  
+- Inspireras av **case studies** från framgångsrika startups  
+- Diskutera **framtida utmaningar** inom digitalisering och hållbarhet  
+
+## Hur vi tar med oss detta framåt
+
+För oss på **Dataflow Solutions** handlar det om att omsätta inspiration till handling.  
+Vi tar med oss:
+
+- **Nya idéer för hur AI kan stärka användarupplevelser**  
+- Ett starkare **nätverk av branschkontakter**  
+
+## Sammanfattning
+
+Lovable-eventet blev ett kvitto på att vi är på rätt väg.  
+Vi vill fortsätta skapa **moderna, tillgängliga och framtidssäkra lösningar** för våra kunder.
+
+Vill du veta mer om hur vi arbetar med innovation och webb?  
+<a href="/#contact" style="color:#2563eb; text-decoration:underline; font-weight:600;">Kontakta oss</a> så berättar vi gärna mer.
+
+*Publicerad: 11 september 2025*  
+*Av: Dataflow Solutions Team*`,
+    author: {
+      name: "Dataflow Solutions Team",
+      avatar: "/api/placeholder/40/40",
+      role: "Grundare",
+    },
+    publishedAt: "2025-09-11",
+    readTime: "5 min läsning",
+    category: "Event",
+    tags: ["Lovable", "Event", "AI", "Innovation", "Nätverkande"],
+    image: "/images/blog/backgroundBlog3.png",
+    featured: false,
+  },
 ];
 
 export const getPostBySlug = (slug: string): BlogPost | undefined => {
