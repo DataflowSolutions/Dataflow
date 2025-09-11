@@ -70,32 +70,31 @@ export default function RootLayout({
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Dataflow Solutions",
-    "url": "https://dataflowsolutions.se",
-    "logo": "https://dataflowsolutions.se/logo/Tachyon2.png",
-    "description": "Dataflow Solutions utvecklar moderna hemsidor och skalbara SaaS-produkter. Vi hjälper företag från idé till färdig digital lösning.",
-    "foundingDate": "2024",
-    "address": {
+    name: "Dataflow Solutions",
+    url: "https://dataflowsolutions.se",
+    logo: "https://dataflowsolutions.se/logo/DataflowLogo.png",
+    description:
+      "Dataflow Solutions utvecklar moderna hemsidor och skalbara SaaS-produkter. Vi hjälper företag från idé till färdig digital lösning.",
+    foundingDate: "2025",
+    address: {
       "@type": "PostalAddress",
-      "addressCountry": "SE"
+      addressCountry: "SE",
     },
-    "sameAs": [
-      "https://www.linkedin.com/company/dataflow-solutions"
-    ],
-    "contactPoint": {
+    sameAs: ["https://www.linkedin.com/company/dataflow-solutions"],
+    contactPoint: {
       "@type": "ContactPoint",
-      "contactType": "Customer Service",
-      "availableLanguage": "Swedish"
+      contactType: "Customer Service",
+      availableLanguage: "Swedish",
     },
-    "knowsAbout": [
+    knowsAbout: [
       "Web Development",
       "SaaS Development",
       "Next.js",
       "React",
       "TypeScript",
       "UI/UX Design",
-      "Digital Strategy"
-    ]
+      "Digital Strategy",
+    ],
   };
 
   return (
@@ -103,7 +102,11 @@ export default function RootLayout({
       <head>
         {/* Preconnect to external domains for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
 
