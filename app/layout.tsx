@@ -59,6 +59,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://dataflowsolutions.se",
   },
+  other: {
+    robots: "index,follow",
+    googlebot: "index,follow",
+  },
 };
 
 export default function RootLayout({
