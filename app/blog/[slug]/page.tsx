@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostClient from "./BlogPostClient";
-import { getPostBySlug } from "../../../lib/blogData";
+import { getPostBySlug, allPosts } from "../../../lib/blogData";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -9,7 +9,15 @@ interface BlogPostPageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
@@ -70,72 +78,72 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-  "image": `https://dataflowsolutions.se${post.image}`,
-    "author": {
+    headline: post.title,
+    description: post.excerpt,
+    image: `https://dataflowsolutions.se${post.image}`,
+    author: {
       "@type": "Person",
-      "name": post.author.name,
-      "jobTitle": post.author.role,
+      name: post.author.name,
+      jobTitle: post.author.role,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Dataflow Solutions",
-      "logo": {
+      name: "Dataflow Solutions",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://dataflowsolutions.se/logo/Tachyon2.png"
-      }
+        url: "https://dataflowsolutions.se/logo/Tachyon2.png",
+      },
     },
-    "datePublished": post.publishedAt,
-    "dateModified": post.publishedAt,
-    "mainEntityOfPage": {
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://dataflowsolutions.se/blog/${post.slug}`
+      "@id": `https://dataflowsolutions.se/blog/${post.slug}`,
     },
-    "articleSection": post.category,
-    "keywords": post.tags.join(", "),
-    "wordCount": post.content
-      .replace(/[#*_`>~-]/g, " ")   // markdown-kontrolltecken bort
+    articleSection: post.category,
+    keywords: post.tags.join(", "),
+    wordCount: post.content
+      .replace(/[#*_`>~-]/g, " ") // markdown-kontrolltecken bort
       .replace(/\s+/g, " ")
       .trim()
       .split(" ").length,
-    "timeRequired": (() => {
+    timeRequired: (() => {
       const m = post.readTime.match(/\d+/);
       return m ? `PT${m[0]}M` : undefined;
     })(),
-    "url": `https://dataflowsolutions.se/blog/${post.slug}`,
-    "isAccessibleForFree": true,
-    "inLanguage": "sv-SE",
-    "copyrightHolder": {
+    url: `https://dataflowsolutions.se/blog/${post.slug}`,
+    isAccessibleForFree: true,
+    inLanguage: "sv-SE",
+    copyrightHolder: {
       "@type": "Organization",
-      "name": "Dataflow Solutions"
-    }
+      name: "Dataflow Solutions",
+    },
   };
 
   // Generate breadcrumb structured data for SEO
   const breadcrumbData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Hem",
-        "item": "https://dataflowsolutions.se"
+        position: 1,
+        name: "Hem",
+        item: "https://dataflowsolutions.se",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Blogg",
-        "item": "https://dataflowsolutions.se/blog"
+        position: 2,
+        name: "Blogg",
+        item: "https://dataflowsolutions.se/blog",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": post.title,
-        "item": `https://dataflowsolutions.se/blog/${post.slug}`
-      }
-    ]
+        position: 3,
+        name: post.title,
+        item: `https://dataflowsolutions.se/blog/${post.slug}`,
+      },
+    ],
   };
 
   return (

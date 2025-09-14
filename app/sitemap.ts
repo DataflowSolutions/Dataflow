@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { allPosts } from "@/lib/blogData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.dataflowsolutions.se";
+  const baseUrl = "https://dataflowsolutions.se";
 
   // Static routes
   const staticRoutes: MetadataRoute.Sitemap = [

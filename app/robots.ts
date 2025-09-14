@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://www.dataflowsolutions.se/sitemap.xml",
+    sitemap: "https://dataflowsolutions.se/sitemap.xml",
   };
 }
