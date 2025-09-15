@@ -1,9 +1,15 @@
 {
   "redirects": [
     {
-      "source": "https://www.dataflowsolutions.se/:path*",
-      "destination": "https://dataflowsolutions.se/:path*",
-      "permanent": true
+      "source": "/(.*)",
+      "destination": "https://dataflowsolutions.se/$1",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "www.dataflowsolutions.se"
+        }
+      ]
     }
   ]
 }
