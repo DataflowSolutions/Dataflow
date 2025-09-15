@@ -4,7 +4,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blogg | Dataflow Solutions - Insikter inom Webbutveckling & SaaS",
-  description: "Läs våra senaste artiklar om modern webbutveckling, SaaS-utveckling, digital strategi och tekniska insikter.",
+  description:
+    "Läs våra senaste artiklar om modern webbutveckling, SaaS-utveckling, digital strategi och tekniska insikter.",
   openGraph: {
     title: "Blogg | Dataflow Solutions - Expertinsikter inom Webbutveckling",
     description:
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://dataflowsolutions.se/logo/Tachyon2.png",
+        url: "https://dataflowsolutions.se/logo/DFS.png",
         width: 1200,
         height: 630,
         alt: "Dataflow Solutions Blogg - Webbutveckling & SaaS-insikter",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     title: "Blogg | Dataflow Solutions - Webbutvecklingsinsikter",
     description:
       "Läs expertartiklar om modern webbutveckling, SaaS och digital strategi från Dataflow Solutions.",
-    images: ["https://dataflowsolutions.se/logo/Tachyon2.png"],
+    images: ["https://dataflowsolutions.se/logo/DFS.png"],
     creator: "@dataflowsolutions_se",
   },
   alternates: { canonical: "https://dataflowsolutions.se/blog" },
@@ -49,7 +50,7 @@ export default function BlogPage() {
       name: "Dataflow Solutions",
       logo: {
         "@type": "ImageObject",
-        url: "https://dataflowsolutions.se/logo/Tachyon2.png",
+        url: "https://dataflowsolutions.se/logo/DFS.png",
       },
     },
     mainEntityOfPage: {
@@ -65,12 +66,14 @@ export default function BlogPage() {
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "itemListElement": allPosts.map((p: { slug: string; title: string }, i: number) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "url": `https://dataflowsolutions.se/blog/${p.slug}`,
-      "name": p.title,
-    })),
+    itemListElement: allPosts.map(
+      (p: { slug: string; title: string }, i: number) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `https://dataflowsolutions.se/blog/${p.slug}`,
+        name: p.title,
+      })
+    ),
   };
   return (
     <>

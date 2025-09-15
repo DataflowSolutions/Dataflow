@@ -11,7 +11,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#4f46e5",
     icons: [
       {
-        src: "/logo/Tachyon2.png",
+        src: "/logo/DFS.png",
         sizes: "any",
         type: "image/png",
         purpose: "maskable",

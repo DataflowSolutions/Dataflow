@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "Dataflow Solutions",
     images: [
       {
-        url: "/logo/Tachyon2.png",
+        url: "/logo/DFS.png",
         width: 1200,
         height: 630,
         alt: "Dataflow Solutions – Modern webbutveckling och SaaS-lösningar",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "Dataflow Solutions – Studio för webbutveckling och SaaS",
     description:
       "Dataflow Solutions hjälper företag och startups att bygga moderna hemsidor och digitala produkter som växer med din verksamhet.",
-    images: ["/logo/Tachyon2.png"],
+    images: ["/logo/DFS.png"],
     creator: "@dataflowsolutions_se",
   },
   alternates: {

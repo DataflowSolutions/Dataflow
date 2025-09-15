@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: "Dataflow Solutions",
       logo: {
         "@type": "ImageObject",
-        url: "https://dataflowsolutions.se/logo/Tachyon2.png",
+        url: "https://dataflowsolutions.se/logo/DFS.png",
       },
     },
     datePublished: post.publishedAt,
