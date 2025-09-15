@@ -11,6 +11,7 @@ import {
   Linkedin,
   Github,
   Mail,
+  Phone,
 } from "lucide-react";
 import Card from "./ui/Card";
 import Button from "./ui/Button";
@@ -49,6 +50,7 @@ const team = [
     role: "VD / Utvecklare",
     bio: "Specialiserad på avancerad webbutveckling, AI-drivna system och skalbara SaaS-plattformar. Leder den tekniska utvecklingen och ansvarar för strategi och arkitektur.",
     image: "/images/team/albin.png",
+    phone: "+46 72 877 53 59",
     skills: [
       "Next.js",
       "TypeScript",
@@ -69,6 +71,7 @@ const team = [
     role: "Delägare / Utvecklare",
     bio: "Fokuserar på frontend utveckling med högkvalitativa lösningar för webben. Driver implementation av komplexa funktioner och integrationer.",
     image: "/images/team/oliver.png",
+    phone: "+46 70 042 73 62",
     skills: ["Next.js", "TypeScript", "Node.js", "Python", "REST APIs"],
     social: {
       linkedin: "https://www.linkedin.com/in/oliver-soderlund-granzer/",
@@ -81,6 +84,7 @@ const team = [
     role: "CMO / Growth",
     bio: "Ansvarar för marknadsföring, kundrelationer och strategisk tillväxt. Driver outreach, branding och leadgenerering för att expandera företagets räckvidd.",
     image: "/images/team/melvin.png",
+    phone: "+46 79 347 10 09",
     skills: [
       "Marknadsföring",
       "Growth Strategy",
@@ -221,9 +225,15 @@ export default function ModernAbout() {
                     <h4 className="text-xl font-bold text-text-primary mb-1">
                       {member.name}
                     </h4>
-                    <p className="text-[#9091da] font-medium mb-3">
+                    <p className="text-[#9091da] font-medium mb-2">
                       {member.role}
                     </p>
+                    {member.phone && (
+                      <div className="flex items-center text-text-secondary text-sm mb-3">
+                        <Phone className="w-3 h-3 mr-1.5" />
+                        <span>{member.phone}</span>
+                      </div>
+                    )}
                     <p className="text-text-secondary text-sm mb-4 leading-relaxed">
                       {member.bio}
                     </p>
