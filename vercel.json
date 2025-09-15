@@ -1,15 +1,1 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://dataflowsolutions.se/$1",
-      "permanent": true,
-      "has": [
-        {
-          "type": "host",
-          "value": "www.dataflowsolutions.se"
-        }
-      ]
-    }
-  ]
-}
+{}
