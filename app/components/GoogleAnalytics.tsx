@@ -4,17 +4,6 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, Suspense } from "react";
 import Script from "next/script";
 
-// Extend Window interface for gtag
-declare global {
-  interface Window {
-    gtag: (
-      command: 'config' | 'event' | 'consent',
-      targetId: string,
-      config?: Record<string, unknown>
-    ) => void;
-  }
-}
-
 export default function GoogleAnalytics() {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX";
 
@@ -32,13 +21,13 @@ export default function GoogleAnalytics() {
         onLoad={() => {
           // Initialize gtag after script loads
           if (typeof window !== "undefined" && window.gtag) {
-            window.gtag('consent', 'default', {
-              'analytics_storage': 'denied',
-              'ad_storage': 'denied',
-              'functionality_storage': 'denied',
-              'personalization_storage': 'denied',
-              'security_storage': 'granted',
-              'wait_for_update': 500,
+            window.gtag("consent", "default", {
+              analytics_storage: "denied",
+              ad_storage: "denied",
+              functionality_storage: "denied",
+              personalization_storage: "denied",
+              security_storage: "granted",
+              wait_for_update: 500,
             });
           }
         }}
@@ -86,9 +75,9 @@ function GoogleAnalyticsTracker({ gaId }: { gaId: string }) {
     const savedPreferences = localStorage.getItem("cookie-preferences");
     if (savedPreferences && typeof window !== "undefined" && window.gtag) {
       const preferences = JSON.parse(savedPreferences);
-      window.gtag('consent', 'update', {
-        analytics_storage: preferences.analytics ? 'granted' : 'denied',
-        ad_storage: preferences.marketing ? 'granted' : 'denied',
+      window.gtag("consent", "update", {
+        analytics_storage: preferences.analytics ? "granted" : "denied",
+        ad_storage: preferences.marketing ? "granted" : "denied",
       });
     }
   }, []);
@@ -101,7 +90,7 @@ function GoogleAnalyticsTracker({ gaId }: { gaId: string }) {
 
     // Only track if we have gtag available
     if (typeof window !== "undefined" && window.gtag) {
-      window.gtag('config', gaId, {
+      window.gtag("config", gaId, {
         page_path: url,
       });
     }
