@@ -284,6 +284,22 @@ export default function ModernServices() {
                 variant="gradient"
                 size="lg"
                 rightIcon={<ArrowRight className="w-5 h-5" />}
+                onClick={() => {
+                  // Open Calendly in new tab
+                  window.open(
+                    "https://calendly.com/admin-dataflowsolutions-mupp/30min",
+                    "_blank"
+                  );
+                  // Navigate to confirmation page
+                  window.location.href = "/mote-bokat";
+                }}
+                className="cursor-pointer"
+              >
+                Boka gratis möte
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
                 onClick={() =>
                   document
                     .getElementById("contact")
@@ -291,19 +307,7 @@ export default function ModernServices() {
                 }
                 className="cursor-pointer"
               >
-                Få kostnadsfri konsultation
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() =>
-                  document
-                    .getElementById("portfolio")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="cursor-pointer"
-              >
-                Se våra case studies
+                Kontakta oss
               </Button>
             </div>
           </Card>

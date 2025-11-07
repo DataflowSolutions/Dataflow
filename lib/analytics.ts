@@ -2,18 +2,12 @@
 export const GA_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX";
 
-// Google Analytics tracking functions
-type GtagWindow = {
-  gtag?: (
-    command: string,
-    targetId: string,
-    config?: Record<string, unknown>
-  ) => void;
-};
+// Google Ads configuration
+export const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "";
 
 export const pageview = (url: string) => {
-  if (typeof window !== "undefined" && (window as GtagWindow).gtag) {
-    (window as GtagWindow).gtag!("config", GA_MEASUREMENT_ID, {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("config", GA_MEASUREMENT_ID, {
       page_path: url,
     });
   }
@@ -30,11 +24,22 @@ export const event = ({
   label?: string;
   value?: number;
 }) => {
-  if (typeof window !== "undefined" && (window as GtagWindow).gtag) {
-    (window as GtagWindow).gtag!("event", action, {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", action, {
       event_category: category,
       event_label: label,
       value: value,
+    });
+  }
+};
+
+// Google Ads Conversion Tracking
+export const trackConversion = (conversionId: string, value?: number) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", "conversion", {
+      send_to: conversionId,
+      value: value || 1.0,
+      currency: "SEK",
     });
   }
 };

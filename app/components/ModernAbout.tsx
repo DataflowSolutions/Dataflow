@@ -324,12 +324,15 @@ export default function ModernAbout() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() =>
+                onClick={() => {
+                  // Open Calendly in new tab
                   window.open(
                     "https://calendly.com/admin-dataflowsolutions-mupp/30min",
                     "_blank"
-                  )
-                }
+                  );
+                  // Navigate to confirmation page
+                  window.location.href = "/mote-bokat";
+                }}
                 className="cursor-pointer"
               >
                 Boka ett möte

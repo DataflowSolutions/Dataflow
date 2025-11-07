@@ -46,8 +46,15 @@ const contactInfo = [
     title: "Boka möte",
     content: "Kostnadsfri konsultation",
     description: "Boka en 30-minuters kostnadsfri diskussion om ditt projekt.",
-    action: () =>
-      window.open("https://calendly.com/admin-dataflowsolutions-mupp/30min"),
+    action: () => {
+      // Open Calendly in new tab
+      window.open(
+        "https://calendly.com/admin-dataflowsolutions-mupp/30min",
+        "_blank"
+      );
+      // Navigate to confirmation page
+      window.location.href = "/mote-bokat";
+    },
   },
 ];
 

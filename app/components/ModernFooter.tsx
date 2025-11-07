@@ -13,9 +13,10 @@ import {
   Instagram,
   // ExternalLink,
   //   MessageSquare,
+  Calendar,
 } from "lucide-react";
 import Image from "next/image";
-// import Button from "./ui/Button";
+import Button from "./ui/Button";
 
 const footerLinks = {
   services: [
@@ -167,7 +168,7 @@ export default function ModernFooter() {
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-3">
+              <div className="space-y-3 mb-6">
                 <div className="flex items-center text-text-secondary">
                   <Mail className="w-5 h-5 mr-3 text-primary" />
                   <span>info@dataflowsolutions.se</span>
@@ -181,6 +182,32 @@ export default function ModernFooter() {
                   <span>Stockholm, Sverige</span>
                 </div> */}
               </div>
+
+              {/* CTA Button */}
+              <Button
+                variant="gradient"
+                size="md"
+                leftIcon={<Calendar className="w-4 h-4" />}
+                onClick={() => {
+                  // Track meeting booking click
+                  event({
+                    action: "cta_click",
+                    category: "Footer",
+                    label: "Book Meeting",
+                    value: 1,
+                  });
+                  // Open Calendly in new tab
+                  window.open(
+                    "https://calendly.com/admin-dataflowsolutions-mupp/30min",
+                    "_blank"
+                  );
+                  // Navigate to confirmation page
+                  window.location.href = "/mote-bokat";
+                }}
+                className="cursor-pointer w-full sm:w-auto"
+              >
+                Boka gratis möte
+              </Button>
             </motion.div>
 
             {/* Services */}

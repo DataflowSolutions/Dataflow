@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Star, Users, Award, TrendingUp } from "lucide-react";
+import { ArrowRight, Star, Users, Award, TrendingUp } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { event } from "@/lib/analytics";
 import Button from "./ui/Button";
@@ -120,16 +120,20 @@ export default function ModernHero() {
                   event({
                     action: "cta_click",
                     category: "Hero",
-                    label: "Start Project",
+                    label: "Book Meeting",
                     value: 1,
                   });
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  // Open Calendly in new tab
+                  window.open(
+                    "https://calendly.com/admin-dataflowsolutions-mupp/30min",
+                    "_blank"
+                  );
+                  // Navigate to confirmation page
+                  window.location.href = "/mote-bokat";
                 }}
                 className="group cursor-pointer"
               >
-                Starta ditt projekt
+                Boka gratis möte
                 <motion.span
                   className="ml-2"
                   animate={{ x: [0, 5, 0] }}
@@ -142,22 +146,21 @@ export default function ModernHero() {
               <Button
                 variant="outline"
                 size="xl"
-                leftIcon={<Play className="w-5 h-5" />}
                 onClick={() => {
-                  // Track case studies click
+                  // Track contact click
                   event({
                     action: "cta_click",
                     category: "Hero",
-                    label: "View Case Studies",
+                    label: "Contact Us",
                     value: 1,
                   });
                   document
-                    .getElementById("portfolio")
+                    .getElementById("contact")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="cursor-pointer"
               >
-                Se våra case studies
+                Kontakta oss
               </Button>
             </motion.div>
 
