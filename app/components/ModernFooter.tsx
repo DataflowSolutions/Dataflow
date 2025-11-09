@@ -14,6 +14,7 @@ import {
   // ExternalLink,
   //   MessageSquare,
   Calendar,
+  Linkedin,
 } from "lucide-react";
 import Image from "next/image";
 import Button from "./ui/Button";
@@ -55,12 +56,12 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  //   {
-  //     name: "LinkedIn",
-  //     icon: Linkedin,
-  //     href: "https://linkedin.com/company/dataflowsolutions",
-  //     color: "hover:text-blue-500",
-  //   },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://linkedin.com/company/dataflowsweden/",
+    color: "hover:text-blue-500",
+  },
   {
     name: "GitHub",
     icon: Github,
