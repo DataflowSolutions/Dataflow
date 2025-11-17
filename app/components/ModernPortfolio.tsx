@@ -212,11 +212,7 @@ export default function ModernPortfolio() {
 
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 md:transition-opacity md:duration-300 flex items-center justify-center space-x-4">
-                    {item.title === "Hirena" ? (
-                      <span className="text-red-400 font-semibold text-sm bg-black/70 px-3 py-2 rounded-md">
-                        Currently not available
-                      </span>
-                    ) : item.title === "Carl Larsson-gården" ? (
+                    {item.title === "Carl Larsson-gården" ? (
                       <span className="text-blue-400 font-semibold text-sm bg-black/70 px-3 py-2 rounded-md">
                         Website currently being built
                       </span>
@@ -294,11 +290,7 @@ export default function ModernPortfolio() {
 
                   {/* Mobile Action Buttons */}
                   <div className="flex flex-col gap-3 md:hidden">
-                    {item.title === "Hirena" ? (
-                      <div className="text-red-400 font-semibold text-sm text-center py-3">
-                        Currently not available
-                      </div>
-                    ) : item.title === "Carl Larsson-gården" ? (
+                    {item.title === "Carl Larsson-gården" ? (
                       <div className="text-blue-400 font-semibold text-sm text-center py-3">
                         Website currently being built
                       </div>
