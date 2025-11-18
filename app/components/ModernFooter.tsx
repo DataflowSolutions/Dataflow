@@ -60,19 +60,19 @@ const socialLinks = [
     name: "LinkedIn",
     icon: Linkedin,
     href: "https://linkedin.com/company/dataflowsweden/",
-    color: "hover:text-blue-500",
+    color: "hover:text-social-linkedin",
   },
   {
     name: "GitHub",
     icon: Github,
     href: "https://github.com/dataflowsolutions",
-    color: "hover:text-gray-400",
+    color: "hover:text-social-github",
   },
   {
     name: "Instagram",
     icon: Instagram,
     href: "https://instagram.com/dataflowsolutions_sweden/",
-    color: "hover:text-pink-500",
+    color: "hover:text-social-instagram",
   },
   //   {
   //     icon: MessageSquare,

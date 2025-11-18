@@ -58,7 +58,7 @@ export default function ModernHero() {
         ))}
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--grid-pattern)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-pattern)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

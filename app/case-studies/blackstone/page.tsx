@@ -1,9 +1,36 @@
-
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import Button from "../../components/ui/Button";
 import Card from "../../components/ui/Card";
 import Badge from "../../components/Badge";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title:
+    "Blackstone Steakhouse Case Study - Digital Platform Management | Dataflow Solutions",
+  description:
+    "Genom samarbete med en partnerbyrå har vi bidragit till att hantera och förbättra Blackstone Steakhouse digitala plattform. Läs om vårt arbete med webbplatshantering, bokningssystem och optimering.",
+  keywords: [
+    "blackstone steakhouse",
+    "digital platform",
+    "webbplatshantering",
+    "case study",
+    "bokningssystem",
+    "restaurang",
+    "Stockholm",
+  ],
+  openGraph: {
+    title: "Blackstone Steakhouse - Digital Platform Management",
+    description:
+      "Webbplatshantering, förbeställningssystem och optimering för Blackstone Steakhouse. Läs vår case study.",
+    url: "https://dataflowsolutions.se/case-studies/blackstone",
+    type: "article",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function BlackstoneCaseStudy() {
   return (
@@ -19,7 +46,12 @@ export default function BlackstoneCaseStudy() {
             Tillbaka till Portfolio
           </Link>
 
-          <Badge text="Case Study" variant="primary" size="lg" className="mb-6" />
+          <Badge
+            text="Case Study"
+            variant="primary"
+            size="lg"
+            className="mb-6"
+          />
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
             Blackstone Steakhouse —{" "}
@@ -27,7 +59,10 @@ export default function BlackstoneCaseStudy() {
           </h1>
 
           <p className="text-xl text-text-secondary max-w-3xl leading-relaxed">
-            Genom samarbete med en partnerbyrå har vi bidragit till att hantera och förbättra Blackstone Steakhouse digitala plattform. Vi har arbetat med att säkerställa en stabil och effektiv online-närvaro för denna välkända restaurang.
+            Genom samarbete med en partnerbyrå har vi bidragit till att hantera
+            och förbättra Blackstone Steakhouse digitala plattform. Vi har
+            arbetat med att säkerställa en stabil och effektiv online-närvaro
+            för denna välkända restaurang.
           </p>
         </div>
       </div>
@@ -36,7 +71,9 @@ export default function BlackstoneCaseStudy() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Section 1: What We Did */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-text-primary mb-8">Vad vi gjorde</h2>
+          <h2 className="text-3xl font-bold text-text-primary mb-8">
+            Vad vi gjorde
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card variant="elevated" className="p-6">
@@ -44,7 +81,9 @@ export default function BlackstoneCaseStudy() {
                 Uppdatering av menyer och säsongserbjudanden
               </h3>
               <p className="text-text-secondary">
-                Vi har regelbundet uppdaterat restaurangens meny och säsongsmässiga erbjudanden för att säkerställa att informationen alltid är aktuell och korrekt för besökare.
+                Vi har regelbundet uppdaterat restaurangens meny och
+                säsongsmässiga erbjudanden för att säkerställa att informationen
+                alltid är aktuell och korrekt för besökare.
               </p>
             </Card>
 
@@ -53,7 +92,9 @@ export default function BlackstoneCaseStudy() {
                 Felsökning och kritiska reparationer
               </h3>
               <p className="text-text-secondary">
-                Vi har identifierat och åtgärdat buggar samt kritiska problem som kunde påverka användarupplevelsen och funktionaliteten på webbplatsen.
+                Vi har identifierat och åtgärdat buggar samt kritiska problem
+                som kunde påverka användarupplevelsen och funktionaliteten på
+                webbplatsen.
               </p>
             </Card>
 
@@ -62,7 +103,9 @@ export default function BlackstoneCaseStudy() {
                 Hantering och underhåll av webbplatsen
               </h3>
               <p className="text-text-secondary">
-                Vi har ansvarat för löpande hantering och underhåll av webbplatsen, inklusive prestandaoptimering och säkerhetsuppdateringar för att säkerställa en stabil drift.
+                Vi har ansvarat för löpande hantering och underhåll av
+                webbplatsen, inklusive prestandaoptimering och
+                säkerhetsuppdateringar för att säkerställa en stabil drift.
               </p>
             </Card>
           </div>
@@ -80,7 +123,9 @@ export default function BlackstoneCaseStudy() {
                 Hantering av stora gruppbeställningar
               </h3>
               <p className="text-text-secondary">
-                Vi har förbättrat systemet för hantering av stora gruppbeställningar, vilket gör det enklare för kunder att boka bord och göra förbeställningar för större sällskap.
+                Vi har förbättrat systemet för hantering av stora
+                gruppbeställningar, vilket gör det enklare för kunder att boka
+                bord och göra förbeställningar för större sällskap.
               </p>
             </Card>
 
@@ -89,7 +134,8 @@ export default function BlackstoneCaseStudy() {
                 Lösning av kritiska flödesfel
               </h3>
               <p className="text-text-secondary">
-                Vi har löst kritiska fel i bokningsflödet som tidigare kunde hindra kunder från att slutföra sina beställningar.
+                Vi har löst kritiska fel i bokningsflödet som tidigare kunde
+                hindra kunder från att slutföra sina beställningar.
               </p>
             </Card>
 
@@ -98,7 +144,9 @@ export default function BlackstoneCaseStudy() {
                 Förbättrad användarupplevelse
               </h3>
               <p className="text-text-secondary">
-                Genom att optimera användargränssnittet har vi gjort bokningsprocessen smidigare och mer intuitiv, vilket leder till bättre kundnöjdhet.
+                Genom att optimera användargränssnittet har vi gjort
+                bokningsprocessen smidigare och mer intuitiv, vilket leder till
+                bättre kundnöjdhet.
               </p>
             </Card>
 
@@ -107,7 +155,9 @@ export default function BlackstoneCaseStudy() {
                 Löpande hantering och stabilitetsövervakning
               </h3>
               <p className="text-text-secondary">
-                Vi genomför regelbunden övervakning av systemets stabilitet och prestanda för att säkerställa att allt fungerar optimalt dygnet runt.
+                Vi genomför regelbunden övervakning av systemets stabilitet och
+                prestanda för att säkerställa att allt fungerar optimalt dygnet
+                runt.
               </p>
             </Card>
           </div>
@@ -115,22 +165,34 @@ export default function BlackstoneCaseStudy() {
 
         {/* Section 3: Impact */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-text-primary mb-8">Påverkan och resultat</h2>
+          <h2 className="text-3xl font-bold text-text-primary mb-8">
+            Påverkan och resultat
+          </h2>
 
           <Card variant="elevated" className="p-8">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">
-              Vårt arbete har bidragit till att förbättra webbplatsens tillförlitlighet, hastighet och kundflöde. Genom att åtgärda tekniska problem och optimera användarupplevelsen har vi hjälpt till att skapa en mer professionell och effektiv digital närvaro för Blackstone Steakhouse.
+              Vårt arbete har bidragit till att förbättra webbplatsens
+              tillförlitlighet, hastighet och kundflöde. Genom att åtgärda
+              tekniska problem och optimera användarupplevelsen har vi hjälpt
+              till att skapa en mer professionell och effektiv digital närvaro
+              för Blackstone Steakhouse.
             </p>
 
             <p className="text-text-secondary">
-              Dessa förbättringar har lett till en stabilare plattform som bättre möter kundernas behov och förväntningar, vilket i sin tur stärker restaurangens varumärke och kundlojalitet.
+              Dessa förbättringar har lett till en stabilare plattform som
+              bättre möter kundernas behov och förväntningar, vilket i sin tur
+              stärker restaurangens varumärke och kundlojalitet.
             </p>
           </Card>
         </section>
 
         {/* CTA */}
         <div className="text-center">
-          <Link href="https://blackstonesteakhouse.se" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://blackstonesteakhouse.se"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button
               variant="primary"
               size="lg"

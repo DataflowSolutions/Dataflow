@@ -21,7 +21,7 @@ const portfolioItems = [
     title: "Hirena",
     description:
       "Hirena är en svensk AI-baserad jobbplattform som analyserar CV och personliga brev för att matcha kandidater med relevanta jobbannonser. Plattformen använder semantisk sökning med embeddings för smartare och mer träffsäkra resultat.",
-    image: "/images/hirena.png",
+    image: "/images/hirena2.png",
     category: "SaaS",
     tech: [
       "Next.js",
@@ -35,6 +35,7 @@ const portfolioItems = [
     ],
     liveUrl: "https://hirena.se",
     githubUrl: "",
+    caseStudyUrl: "/case-studies/hirena",
     year: "2025",
   },
   {
@@ -181,21 +182,21 @@ export default function ModernPortfolio() {
                       item.title === "Hirena"
                         ? "bg-gradient-to-br from-primary/20 to-secondary/20"
                         : item.title === "Blackstone Steakhouse"
-                        ? "bg-gradient-to-br from-black/30 via-red-900/30 to-red-600/30"
+                        ? "bg-gradient-to-br from-portfolio-blackstone-from/30 via-portfolio-blackstone-via/30 to-portfolio-blackstone-to/30"
                         : item.title === "Skedvi Bröd"
-                        ? "bg-gradient-to-br from-orange-400/30 via-yellow-400/30 to-orange-500/30"
+                        ? "bg-gradient-to-br from-portfolio-skedvi-from/30 via-portfolio-skedvi-via/30 to-portfolio-skedvi-to/30"
                         : item.title === "Carl Larsson-gården"
-                        ? "bg-gradient-to-br from-red-500/30 via-white/20 to-red-600/30"
+                        ? "bg-gradient-to-br from-portfolio-carllarsson-from/30 via-portfolio-carllarsson-via/20 to-portfolio-carllarsson-to/30"
                         : item.title === "Sylwan & Fenger-Krog"
-                        ? "bg-gradient-to-br from-white/30 via-green-100/30 to-green-400/30"
+                        ? "bg-gradient-to-br from-portfolio-sylwan-from/30 via-portfolio-sylwan-via/30 to-portfolio-sylwan-to/30"
                         : item.title === "Din hemsida"
-                        ? "bg-gradient-to-br from-purple-500/30 via-blue-500/30 to-indigo-500/30"
+                        ? "bg-gradient-to-br from-portfolio-default-from/30 via-portfolio-default-via/30 to-portfolio-default-to/30"
                         : "bg-gradient-to-br from-primary/20 to-secondary/20"
                     }`}
                   >
                     {item.title === "Hirena" ? (
                       <Image
-                        src="/images/hirena.png"
+                        src="/images/hirena2.png"
                         alt={item.title}
                         width={600}
                         height={400}
@@ -203,7 +204,7 @@ export default function ModernPortfolio() {
                       />
                     ) : (
                       <div className="text-center flex items-center justify-center h-full">
-                        <h3 className="text-white font-bold text-2xl md:text-3xl drop-shadow-2xl text-center px-4">
+                        <h3 className="text-portfolio-image-text font-bold text-2xl md:text-3xl drop-shadow-2xl text-center px-4">
                           {item.title}
                         </h3>
                       </div>
@@ -211,9 +212,9 @@ export default function ModernPortfolio() {
                   </div>
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 md:transition-opacity md:duration-300 flex items-center justify-center space-x-4">
+                  <div className="absolute inset-0 bg-overlay-dark/50 opacity-0 group-hover:opacity-100 md:transition-opacity md:duration-300 flex items-center justify-center space-x-4">
                     {item.title === "Carl Larsson-gården" ? (
-                      <span className="text-blue-400 font-semibold text-sm bg-black/70 px-3 py-2 rounded-md">
+                      <span className="text-overlay-text font-semibold text-sm bg-overlay-dark/70 px-3 py-2 rounded-md">
                         Website currently being built
                       </span>
                     ) : item.title === "Din hemsida" ? (

@@ -23,6 +23,39 @@
   --error: #ef4444;
   --info: #3b82f6;
 
+  /* Portfolio Item Colors */
+  --portfolio-blackstone-from: #000000;
+  --portfolio-blackstone-via: #7f1d1d;
+  --portfolio-blackstone-to: #dc2626;
+  --portfolio-skedvi-from: #fb923c;
+  --portfolio-skedvi-via: #facc15;
+  --portfolio-skedvi-to: #f97316;
+  --portfolio-carllarsson-from: #ef4444;
+  --portfolio-carllarsson-via: #ffffff;
+  --portfolio-carllarsson-to: #dc2626;
+  --portfolio-sylwan-from: #ffffff;
+  --portfolio-sylwan-via: #dcfce7;
+  --portfolio-sylwan-to: #4ade80;
+  --portfolio-default-from: #a855f7;
+  --portfolio-default-via: #3b82f6;
+  --portfolio-default-to: #6366f1;
+
+  /* Overlay Colors */
+  --overlay-dark: #000000;
+  --overlay-text: #60a5fa;
+
+  /* UI Element Colors */
+  --grid-pattern: #1f2937;
+  --team-role: #9091da;
+
+  /* Social Media Colors */
+  --social-linkedin: #3b82f6;
+  --social-github: #9ca3af;
+  --social-instagram: #ec4899;
+
+  /* Portfolio Image Text */
+  --portfolio-image-text: #ffffff;
+
   /* Light Theme */
   --light-background: #ffffff;
   --light-background-elevated: #f9fafb;
@@ -40,6 +73,7 @@
   --light-text-primary: #111827;
   --light-text-secondary: #6b7280;
   --light-text-muted: #9ca3af;
+  --light-portfolio-image-text: #1f2937;
 }
 
 [data-theme="light"] {
@@ -59,6 +93,7 @@
   --text-primary: var(--light-text-primary);
   --text-secondary: var(--light-text-secondary);
   --text-muted: var(--light-text-muted);
+  --portfolio-image-text: var(--light-portfolio-image-text);
 }
 
 @theme inline {
@@ -82,6 +117,29 @@
   --color-warning: var(--warning);
   --color-error: var(--error);
   --color-info: var(--info);
+  --color-portfolio-blackstone-from: var(--portfolio-blackstone-from);
+  --color-portfolio-blackstone-via: var(--portfolio-blackstone-via);
+  --color-portfolio-blackstone-to: var(--portfolio-blackstone-to);
+  --color-portfolio-skedvi-from: var(--portfolio-skedvi-from);
+  --color-portfolio-skedvi-via: var(--portfolio-skedvi-via);
+  --color-portfolio-skedvi-to: var(--portfolio-skedvi-to);
+  --color-portfolio-carllarsson-from: var(--portfolio-carllarsson-from);
+  --color-portfolio-carllarsson-via: var(--portfolio-carllarsson-via);
+  --color-portfolio-carllarsson-to: var(--portfolio-carllarsson-to);
+  --color-portfolio-sylwan-from: var(--portfolio-sylwan-from);
+  --color-portfolio-sylwan-via: var(--portfolio-sylwan-via);
+  --color-portfolio-sylwan-to: var(--portfolio-sylwan-to);
+  --color-portfolio-default-from: var(--portfolio-default-from);
+  --color-portfolio-default-via: var(--portfolio-default-via);
+  --color-portfolio-default-to: var(--portfolio-default-to);
+  --color-overlay-dark: var(--overlay-dark);
+  --color-overlay-text: var(--overlay-text);
+  --color-grid-pattern: var(--grid-pattern);
+  --color-team-role: var(--team-role);
+  --color-social-linkedin: var(--social-linkedin);
+  --color-social-github: var(--social-github);
+  --color-social-instagram: var(--social-instagram);
+  --color-portfolio-image-text: var(--portfolio-image-text);
 }
 
 /* Custom Animations */
@@ -194,6 +252,13 @@ html {
   -webkit-backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .glass-light {

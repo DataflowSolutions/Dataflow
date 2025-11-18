@@ -225,7 +225,7 @@ export default function ModernAbout() {
                     <h4 className="text-xl font-bold text-text-primary mb-1">
                       {member.name}
                     </h4>
-                    <p className="text-[#9091da] font-medium mb-2">
+                    <p className="text-team-role font-medium mb-2">
                       {member.role}
                     </p>
                     {member.phone && (

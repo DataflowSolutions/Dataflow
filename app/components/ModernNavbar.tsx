@@ -140,7 +140,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-overlay-dark/50 backdrop-blur-sm z-40 lg:hidden"
           />
         )}
       </AnimatePresence>
